@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="./assets/fonts/Oswald-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin />
+    <link
+      rel="preload"
+      href="./assets/fonts/OvertheRainbow-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/output.css" />
+    <script
+      src="./assets/js/feather.min.js"
+      defer></script>
+    <script
+      src="./assets/js/main.js"
+      defer></script>
+    <script
+      src="./assets/js/menu.js"
+      defer></script>
+    <script defer>
+      document.addEventListener('DOMContentLoaded', () => {
+        feather.replace();
+      });
+    </script>
+    <title>Home</title>
+  </head>
+  <body class="flex flex-col min-h-screen bg-dark">
+    <header>
+      <div
+        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
+        <div class="logo text-4xl">Carl Manlan</div>
+        <nav>
+          <ul class="flex gap-6 text-xs align-middle content-center flex-wrap">
+            <li class="content-center">About</li>
+            <li class="content-center">Media</li>
+            <li class="content-center">Bluepint for Change</li>
+            <li class="content-center">Bluepint for Success</li>
+            <li class="content-center">
+              <button class="btn-primary">Get In Touch</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="grow">
+      <section class="bannerSection w-full relative flex">
+        <div class="hexBg absolute inset-0 -z-1"></div>
+        <div
+          class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center">
+          <div
+            class="text-wrapper lg:py-8 uppercase text-white items-end content-center">
+            <h1
+              class="text-primary text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+              Innovator <br />
+              Intraprenuer <br />
+              Catalyst
+            </h1>
+            <p class="text-xl lg:text-3xl my-10">
+              Carl is committed to creating
+              <span class="text-primary"> impactful initiatives </span> that
+              drive community transformation worldwide.
+            </p>
+            <button class="btn-primary">About Carl</button>
+          </div>
+          <div class="img-wrapper max-lg:mt-8 flex">
+            <img
+              src="./assets/images/Carl_Hero_Img.png"
+              class="max-h-[80vh] mx-auto mt-auto"
+              alt="" />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-gray py-4">
+      <div
+        class="container flex gap-8 justify-between font-medium text-xs uppercase">
+        <nav class="grid place-content-center">
+          <ul class="flex gap-6">
+            <li><a href="#">Terms & Conditons</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </nav>
+        <div class="social-links">
+          <ul class="flex gap-6">
+            <li><img src="./assets/icons/Linkedin.svg" /></li>
+            <li><img src="./assets/icons/Facebook.svg" /></li>
+            <li><img src="./assets/icons/X.svg" /></li>
+            <li><img src="./assets/icons/Youtube.svg" /></li>
+            <li><img src="./assets/icons/Instagram.svg" /></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+/* .\tailwindcss-windows.exe --input ./css/tw.css --output ./css/output.css --watch */
+
+@import 'tailwindcss';
+
+@font-face {
+  font-family: Oswald;
+  src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+@theme {
+  --color-dark: #000;
+  --color-light: #fff;
+  --color-primary: #f78104;
+  --color-secondary: #a0d3cc;
+  --color-gray: #ababab;
+
+  --font-oswald: Oswald;
+}
+
+:root {
+  font-family: var(--font-oswald);
+  text-rendering: geometricPrecision;
+}
+.container {
+  @apply mx-auto px-2;
+}
+
+.btn-primary {
+  @apply bg-primary px-6 py-2 rounded-full uppercase;
+}
