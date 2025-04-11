@@ -26,6 +26,13 @@
   @apply mx-auto px-2;
 }
 
+[class*='btn'] {
+  @apply px-6 py-2 rounded-full uppercase max-w-max;
+}
+
 .btn-primary {
-  @apply bg-primary px-6 py-2 rounded-full uppercase;
+  @apply bg-primary text-light;
+}
+.btn-light {
+  @apply bg-light text-dark;
 }
