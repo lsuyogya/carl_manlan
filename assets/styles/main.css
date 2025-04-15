@@ -32,3 +32,103 @@ main > section:first-child {
   margin-top: calc(-1 * var(--headerHeight));
   padding-top: var(--headerHeight);
 }
+
+.dateSlider li {
+  position: relative;
+}
+
+.dateSlider li span {
+  position: relative;
+  background-color: var(--color-dark);
+  z-index: 1;
+  padding: 1rem;
+  font-size: var(--text-3xl);
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 400ms ease-out;
+}
+
+.dateSlider li.is-active span {
+  color: var(--color-primary);
+}
+
+.dateSlider li::before {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: '';
+  background-color: var(--color-white);
+  opacity: 1;
+  padding: 0;
+}
+
+.dateSlider li:first-child:after {
+  content: '';
+  position: absolute;
+  height: 0.6rem;
+  width: 0.6rem;
+  top: 50%;
+  display: block;
+  left: 0%;
+  z-index: 1;
+  transform: translateY(-50%);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDggMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBvbHlnb24gcG9pbnRzPSIwLDAgOCw2IDAsMTIiIGZpbGw9IndoaXRlIi8+PC9zdmc+');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.timelineSliders .imgSlider li img {
+  filter: blur(5px);
+  opacity: 0.6;
+  aspect-ratio: 1.4;
+  width: 100%;
+  transition: opacity 400ms ease-out, filter 400ms ease-out;
+  border-radius: 12px;
+  margin-block: 1.5rem;
+}
+.timelineSliders .imgSlider li.is-active img {
+  filter: blur(0px);
+  opacity: 1;
+}
+
+.timelineSliders .imgSlider li p {
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+.timelineSliders .imgSlider li.is-active p {
+  opacity: 1;
+}
+
+.newsSlider :is(.imgWrapper, img) {
+  display: block;
+  background-color: var(--color-gray);
+  width: 100%;
+  aspect-ratio: 1.4;
+  border-radius: 12px;
+}
+.bgImgSlider img {
+  border-radius: 12px;
+}
+
+.bgImgSlider li {
+  position: relative;
+}
+
+.bgImgSlider li:has(img):after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 1)
+  );
+}
+
+.ig img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 1rem;
+}

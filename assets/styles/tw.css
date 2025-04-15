@@ -1,11 +1,21 @@
 /* .\tailwindcss-windows.exe --input ./css/tw.css --output ./css/output.css --watch */
 
 @import 'tailwindcss';
+@source not "../fonts";
+@source not "../icons";
+@source not "../images";
 
 @font-face {
   font-family: Oswald;
   src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
+}
+
+@font-face {
+  font-family: OvertheRainbow;
+  src: url('../fonts/OvertheRainbow-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
 }
 
 @theme {
@@ -16,6 +26,7 @@
   --color-gray: #ababab;
 
   --font-oswald: Oswald;
+  --font-over-the-rainbow: 'OvertheRainbow';
 }
 
 :root {
@@ -35,4 +46,8 @@
 }
 .btn-light {
   @apply bg-light text-dark;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-dark;
 }

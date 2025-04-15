@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   BannerBgEffect();
+  alignBleedOut();
+  initializeSliders();
   window.addEventListener('resize', BannerBgEffect);
+  window.addEventListener('resize', alignBleedOut);
 });
 
 function BannerBgEffect() {
@@ -89,6 +92,7 @@ function resetGradient(element) {
 
 function updateGradientPosition(element) {
   // Calculate new position with easing (lerp)
+
   currentX = currentX + (targetX - currentX) * easing;
   currentY = currentY + (targetY - currentY) * easing;
 
@@ -107,5 +111,104 @@ function updateGradientPosition(element) {
     );
   } else {
     animationFrameId = null;
+  }
+}
+
+function alignBleedOut() {
+  const bleedOutRightWrapper =
+    document.querySelector('.bleedOutRight') ?? false;
+  if (!bleedOutRightWrapper) return;
+
+  const siblingContainer =
+    bleedOutRightWrapper.parentElement.querySelector('.container');
+
+  const computedStyles = window.getComputedStyle(siblingContainer);
+  bleedOutRightWrapper.style.marginInlineStart =
+    computedStyles.marginInlineStart;
+  bleedOutRightWrapper.style.paddingInlineStart =
+    computedStyles.paddingInlineStart;
+}
+
+function initializeSliders() {
+  //timelineSliders
+  const dateSlider =
+    document.querySelector('.timelineSliders .dateSlider') ?? false;
+  const imgSlider =
+    document.querySelector('.timelineSliders .imgSlider') ?? false;
+  if (dateSlider && imgSlider) {
+    const sliderOptions = {
+      arrows: false,
+      pagination: false,
+      perPage: 4,
+      updateOnMove: true,
+      focus: 'center',
+      breakpoints: {
+        800: {
+          perPage: 2,
+        },
+      },
+    };
+    const dateSliderr = new Splide(dateSlider, sliderOptions);
+    const imgSliderr = new Splide(imgSlider, {
+      ...sliderOptions,
+      gap: '2rem',
+    });
+    imgSliderr.sync(dateSliderr);
+    dateSliderr.mount();
+    imgSliderr.mount();
+
+    imgSliderr.on('click', (Slide, e) => {
+      const index = Slide.index;
+      imgSliderr.go(index);
+      dateSliderr.go(index);
+    });
+  }
+
+  const newsSlider = document.querySelector('.newsSlider') ?? false;
+  const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
+  const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
+  if (newsSlider) {
+    const sliderOptions = {
+      arrows: false,
+      pagination: false,
+      perPage: 4,
+      updateOnMove: true,
+      focus: 'center',
+      gap: '1.5rem',
+      breakpoints: {
+        800: {
+          perPage: 2,
+        },
+      },
+    };
+
+    const slider = new Splide(newsSlider, sliderOptions);
+    slider.mount();
+    prevBtn.addEventListener('click', () => {
+      slider.go('<');
+    });
+    nextBtn.addEventListener('click', () => {
+      slider.go('>');
+    });
+  }
+  const bgImgSlider = document.querySelector('.bgImgSlider') ?? false;
+  if (bgImgSlider) {
+    const sliderOptions = {
+      arrows: false,
+      pagination: false,
+      perPage: 4,
+      updateOnMove: true,
+      focus: 'center',
+      gap: '1.5rem',
+      type: 'loop',
+      autoplay: true,
+      breakpoints: {
+        800: {
+          perPage: 2,
+        },
+      },
+    };
+    const slider = new Splide(bgImgSlider, sliderOptions);
+    slider.mount();
   }
 }

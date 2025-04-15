@@ -23,6 +23,9 @@
     <link
       rel="stylesheet"
       href="./assets/styles/output.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/splide.min.css" />
     <script
       src="./assets/js/feather.min.js"
       defer></script>
@@ -32,6 +35,9 @@
     <script
       src="./assets/js/menu.js"
       defer></script>
+    <script
+      src="./assets/js/splide.min.js"
+      defer></script>
     <script defer>
       document.addEventListener('DOMContentLoaded', () => {
         feather.replace();
@@ -40,6 +46,23 @@
     <title>Home</title>
   </head>
   <body class="flex flex-col min-h-screen bg-dark">
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">
+        <path d="M0.855337 8.62432L7.97554 15.7444C8.14022 15.9092 8.36006 16 8.59446 16C8.82886 16 9.0487 15.9092 9.21338 15.7444L9.73774 15.2202C10.0789 14.8786 10.0789 14.3234 9.73774 13.9823L3.75873 8.00332L9.74437 2.01767C9.90905 1.85286 9.99998 1.63316 9.99998 1.39888C9.99998 1.16435 9.90905 0.944641 9.74437 0.779699L9.22002 0.255608C9.05521 0.0907954 8.8355 -1.01802e-07 8.6011 -1.22294e-07C8.36669 -1.42787e-07 8.14686 0.0907954 7.98217 0.255607L0.855337 7.38218C0.690265 7.54752 0.5996 7.76826 0.60012 8.00293C0.5996 8.2385 0.690265 8.45912 0.855337 8.62432Z" fill="black"/>
+        </svg> -->
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      style="display: none">
+      <symbol
+        id="icon-arrow-right"
+        viewBox="0 0 10 16"
+        fill="none">
+        <path
+          d="M0.855337 8.62432L7.97554 15.7444C8.14022 15.9092 8.36006 16 8.59446 16C8.82886 16 9.0487 15.9092 9.21338 15.7444L9.73774 15.2202C10.0789 14.8786 10.0789 14.3234 9.73774 13.9823L3.75873 8.00332L9.74437 2.01767C9.90905 1.85286 9.99998 1.63316 9.99998 1.39888C9.99998 1.16435 9.90905 0.944641 9.74437 0.779699L9.22002 0.255608C9.05521 0.0907954 8.8355 -1.01802e-07 8.6011 -1.22294e-07C8.36669 -1.42787e-07 8.14686 0.0907954 7.98217 0.255607L0.855337 7.38218C0.690265 7.54752 0.5996 7.76826 0.60012 8.00293C0.5996 8.2385 0.690265 8.45912 0.855337 8.62432Z"
+          fill="currentColor" />
+      </symbol>
+    </svg>
+
     <header>
       <div
         class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
@@ -57,6 +80,7 @@
         </nav>
       </div>
     </header>
+
     <main class="grow">
       <section class="bannerSection w-full relative flex">
         <div class="hexBg absolute inset-0 -z-1"></div>
@@ -79,6 +103,7 @@
           </div>
           <div class="img-wrapper max-lg:mt-8 flex">
             <img
+              loading="eager"
               src="./assets/images/Carl_Hero_Img.png"
               class="max-h-[80vh] mx-auto mt-auto"
               alt="" />
@@ -86,12 +111,14 @@
         </div>
       </section>
 
+      <!-- featured cards -->
       <section class="container">
         <div
           class="cardWrapper mb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium">
           <div
             class="card w-full flex flex-col border border-primary bg-primary rounded-xl text-light p-8 min-h-[500px] max-w-[400px] mx-auto">
             <img
+              loading="lazy"
               src="./assets/icons/Circles.svg"
               class="max-h-20 max-w-max"
               alt="" />
@@ -104,6 +131,7 @@
           <div
             class="card w-full flex flex-col border border-secondary bg-secondary rounded-xl text-dark p-8 min-h-[500px] max-w-[400px] mx-auto">
             <img
+              loading="lazy"
               src="./assets/icons/Triangle.svg"
               class="max-h-20 max-w-max"
               alt="" />
@@ -116,6 +144,7 @@
           <div
             class="card w-full flex flex-col border border-light bg-dark rounded-xl text-light p-8 min-h-[500px] max-w-[400px] mx-auto">
             <img
+              loading="lazy"
               src="./assets/icons/Web.svg"
               class="max-h-20 max-w-max"
               alt="" />
@@ -128,7 +157,420 @@
           </div>
         </div>
       </section>
+
+      <!-- Timeline Section -->
+      <section class="text-white py-8">
+        <div class="container flex justify-between mb-6">
+          <h1 class="uppercase text-3xl">Timeline</h1>
+          <button class="btn-primary">View Full Timeline</button>
+        </div>
+        <div class="timelineSliders bleedOutRight">
+          <div class="splide dateSlider">
+            <div class="splide__track">
+              <ul class="splide__list text-center">
+                <li class="splide__slide">
+                  <span class="max-w-max">1980</span>
+                </li>
+                <li class="splide__slide">
+                  <span class="max-w-max">1980</span>
+                </li>
+                <li class="splide__slide">
+                  <span class="max-w-max">1980</span>
+                </li>
+                <li class="splide__slide">
+                  <span class="max-w-max">1980</span>
+                </li>
+                <li class="splide__slide">
+                  <span class="max-w-max">1980</span>
+                </li>
+                <li class="splide__slide">
+                  <span class="max-w-max">1980</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="splide imgSlider">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <img
+                    loading="lazy"
+                    src="./assets/images/timelineImg1.png"
+                    alt="" />
+                  <p class="text-center uppercase">
+                    Born and raised in Côte d’Ivoire
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <img
+                    loading="lazy"
+                    src="./assets/images/timelineImg2.png"
+                    alt="" />
+                  <p class="text-center uppercase">
+                    Born and raised in Côte d’Ivoire
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <img
+                    loading="lazy"
+                    src="./assets/images/timelineImg2.png"
+                    alt="" />
+                  <p class="text-center uppercase">
+                    Born and raised in Côte d’Ivoire
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <img
+                    loading="lazy"
+                    src="./assets/images/timelineImg2.png"
+                    alt="" />
+                  <p class="text-center uppercase">
+                    Born and raised in Côte d’Ivoire
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <img
+                    loading="lazy"
+                    src="./assets/images/timelineImg2.png"
+                    alt="" />
+                  <p class="text-center uppercase">
+                    Born and raised in Côte d’Ivoire
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <img
+                    loading="lazy"
+                    src="./assets/images/timelineImg2.png"
+                    alt="" />
+                  <p class="text-center uppercase">
+                    Born and raised in Côte d’Ivoire
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARL -->
+      <section class="relative">
+        <img
+          loading="lazy"
+          src="./assets/images/Banner.jpeg"
+          alt="Carl"
+          class="w-full max-h-screen object-cover" />
+        <strong
+          class="uppercase text-primary font-medium text-[calc(4rem_+_10vw)] absolute inset-0 m-auto max-w-max max-h-max">
+          Carl
+        </strong>
+      </section>
+
+      <!-- news -->
+      <section class="font-medium uppercase bg-light text-center">
+        <div class="container py-20">
+          <h1 class="text-primary text-3xl">In The News</h1>
+          <h2 class="text-dark text-3xl">
+            latest articles, media features, and interviews
+          </h2>
+          <div class="btnGroup flex gap-6 mt-20 mx-auto flex-wrap">
+            <button
+              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+              Logo
+            </button>
+            <button
+              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+              Logo
+            </button>
+            <button
+              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+              Logo
+            </button>
+            <button
+              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+              Logo
+            </button>
+            <button
+              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+              Logo
+            </button>
+          </div>
+        </div>
+        <div class="container">
+          <div class="flex justify-between">
+            <div class="btnGroup gap-4 flex">
+              <button
+                class="rounded-full border border-primary w-10 h-10 relative"
+                data-prev>
+                <svg
+                  width="10"
+                  height="16"
+                  aria-hidden="true"
+                  class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+              </button>
+              <button
+                class="rounded-full border border-primary w-10 h-10 relative"
+                data-next>
+                <svg
+                  width="10"
+                  height="16"
+                  aria-hidden="true"
+                  class="-scale-x-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                  <use href="#icon-arrow-right"></use>
+                </svg>
+              </button>
+            </div>
+            <button class="btn-primary">View All</button>
+          </div>
+        </div>
+        <div class="splide newsSlider mt-10 py-20">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <div class="imgWrapper">
+                  <img
+                    loading="lazy"
+                    src=""
+                    alt="" />
+                </div>
+                <p class="text-start text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </p>
+              </li>
+              <li class="splide__slide">
+                <div class="imgWrapper">
+                  <img
+                    loading="lazy"
+                    src=""
+                    alt="" />
+                </div>
+                <p class="text-start text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </p>
+              </li>
+              <li class="splide__slide">
+                <div class="imgWrapper">
+                  <img
+                    loading="lazy"
+                    src=""
+                    alt="" />
+                </div>
+                <p class="text-start text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </p>
+              </li>
+              <li class="splide__slide">
+                <div class="imgWrapper">
+                  <img
+                    loading="lazy"
+                    src=""
+                    alt="" />
+                </div>
+                <p class="text-start text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </p>
+              </li>
+              <li class="splide__slide">
+                <div class="imgWrapper">
+                  <img
+                    loading="lazy"
+                    src=""
+                    alt="" />
+                </div>
+                <p class="text-start text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- bp 4 success -->
+      <section class="font-medium uppercase text-light pt-40 max-[800px]:pt-20">
+        <div class="relative">
+          <div class="splide bgImgSlider">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <img
+                    src="./assets/images/img1.png"
+                    alt="" />
+                </li>
+                <li class="splide__slide">
+                  <img
+                    src="./assets/images/img1.png"
+                    alt="" />
+                </li>
+                <li class="splide__slide">
+                  <img
+                    src="./assets/images/img2.png"
+                    alt="" />
+                </li>
+                <li class="splide__slide">
+                  <img
+                    src="./assets/images/img3.png"
+                    alt="" />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="container absolute inset-0 my-auto max-h-max flex flex-col">
+            <p class="text-3xl/relaxed">
+              Blueprints for Success is Carl Manlan’s signature mentorship
+              program, designed to guide ambitious individuals on their journey
+              toward
+              <span class="text-primary">
+                impactful leadership and meaningful personal growth </span
+              >.
+            </p>
+            <button class="btn-primary mt-6 mx-auto">Learn More</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- mason -->
+      <section
+        class="container grid grid-cols-3 gap-4 text-light font-over-the-rainbow pb-20">
+        <div class="flex flex-col gap-4">
+          <div class="imgWrapper w-full aspect-[3/2] bg-gray"></div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni,
+            dignissimos fugiat.
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+            sit alias qui quis dicta odio, mollitia, quibusdam repellat neque
+            eligendi, suscipit doloribus minus omnis cupiditate.
+          </p>
+          <div class="imgWrapper w-full aspect-[3/2] bg-gray"></div>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed,
+            exercitationem qui.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, alias
+            impedit!
+          </p>
+          <div class="imgWrapper w-full aspect-[3/2] bg-gray"></div>
+          <div class="imgWrapper w-full aspect-[0.95] bg-gray"></div>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Praesentium voluptatibus, quo animi blanditiis atque mollitia
+            necessitatibus cupiditate, incidunt, cum facilis cumque similique
+            laudantium optio culpa?
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi,
+            veritatis aperiam.
+          </p>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam,
+            deserunt laudantium.
+          </p>
+          <div class="imgWrapper w-full aspect-[3/2] bg-gray"></div>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi
+            inventore magni eius hic. Expedita reiciendis eius fugiat id
+            aspernatur soluta doloremque temporibus ducimus aperiam quaerat.
+          </p>
+        </div>
+      </section>
+
+      <!-- form -->
+      <section class="uppercase font-medium bg-secondary py-20">
+        <div class="container">
+          <h1 class="text-3xl text-center mb-10">Get in touch</h1>
+          <form class="flex flex-col gap-6 max-w-[44rem] mx-auto">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="formGrp grid gap-2 w-full">
+                <label for="first-name">First Name*</label>
+                <input
+                  required
+                  class="rounded-full bg-light/25 px-8 py-4"
+                  id="first-name"
+                  type="text" />
+              </div>
+              <div class="formGrp grid gap-2 w-full">
+                <label for="last-name">Last Name*</label>
+                <input
+                  required
+                  class="rounded-full bg-light/25 px-8 py-4"
+                  id="last-name"
+                  type="text" />
+              </div>
+            </div>
+            <div class="formGrp grid gap-2 w-full">
+              <label for="email">Email Address*</label>
+              <input
+                required
+                class="rounded-full bg-light/25 px-8 py-4"
+                id="email"
+                type="email" />
+            </div>
+            <button
+              type="submit"
+              class="btn-primary">
+              Get In Touch
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Ig -->
+      <section class="uppercase font-medium py-20">
+        <div class="container">
+          <div class="ig grid grid-flow-col gap-6">
+            <img
+              src="./assets/images/ig1.png"
+              alt="" />
+            <img
+              src="./assets/images/ig2.png"
+              alt="" />
+            <img
+              src="./assets/images/ig3.jpeg"
+              alt="" />
+            <img
+              src="./assets/images/ig4.png"
+              alt="" />
+            <img
+              src="./assets/images/ig5.jpeg"
+              alt="" />
+          </div>
+          <div class="flex justify-center gap-12 mt-10">
+            <button class="btn-secondary flex gap-2">
+              <img
+                loading="lazy"
+                height="20"
+                width="20"
+                src="./assets/icons/Instagram.svg" />
+              <span> Follow Carl on Instagram </span>
+            </button>
+
+            <button class="btn-secondary flex gap-2">
+              <img
+                loading="lazy"
+                height="20"
+                width="20"
+                src="./assets/icons/Linkedin.svg" />
+              <span> Follow Carl on Linkedin </span>
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer class="bg-gray py-4">
       <div
         class="container flex gap-8 justify-between font-medium text-xs uppercase">
@@ -140,11 +582,31 @@
         </nav>
         <div class="social-links">
           <ul class="flex gap-6">
-            <li><img src="./assets/icons/Linkedin.svg" /></li>
-            <li><img src="./assets/icons/Facebook.svg" /></li>
-            <li><img src="./assets/icons/X.svg" /></li>
-            <li><img src="./assets/icons/Youtube.svg" /></li>
-            <li><img src="./assets/icons/Instagram.svg" /></li>
+            <li>
+              <img
+                loading="lazy"
+                src="./assets/icons/Linkedin.svg" />
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="./assets/icons/Facebook.svg" />
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="./assets/icons/X.svg" />
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="./assets/icons/Youtube.svg" />
+            </li>
+            <li>
+              <img
+                loading="lazy"
+                src="./assets/icons/Instagram.svg" />
+            </li>
           </ul>
         </div>
       </div>
