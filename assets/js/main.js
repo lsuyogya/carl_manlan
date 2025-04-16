@@ -46,10 +46,10 @@ function BannerBgEffect() {
 
       hexBg.appendChild(row);
     }
-
     // Set initial gradient position (center of element)
     resetGradient(hexBg);
 
+    if (hexBg.classList.contains('.bgEffect')) return;
     // Event handlers
     parentElement = hexBg.parentElement;
     parentElement.addEventListener('mouseleave', () => {
@@ -89,8 +89,8 @@ function moveGradient(event, element) {
 function resetGradient(element) {
   const rect = element.getBoundingClientRect();
   // Set target to right edge when not hovering
-  targetX = rect.width * 0.8;
-  targetY = rect.height * 0.6;
+  targetX = rect.width * element.getAttribute('data-gradX');
+  targetY = rect.height * element.getAttribute('data-gradY');
   isHovering = false;
 
   element.style.setProperty('--size', `${rect.height * 1.2}px`);
