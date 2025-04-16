@@ -2,9 +2,21 @@ document.addEventListener('DOMContentLoaded', () => {
   BannerBgEffect();
   alignBleedOut();
   initializeSliders();
+  hideBrokenImg();
   window.addEventListener('resize', BannerBgEffect);
   window.addEventListener('resize', alignBleedOut);
 });
+
+function hideBrokenImg() {
+  document.querySelectorAll('img').forEach(function (img) {
+    img.onerror = function () {
+      this.style.display = 'none';
+    };
+    if (img.src.includes('.html')) {
+      img.style.display = 'none';
+    }
+  });
+}
 
 function BannerBgEffect() {
   const hexBgs = document.querySelectorAll('.hexBg');
@@ -130,6 +142,8 @@ function alignBleedOut() {
 }
 
 function initializeSliders() {
+  const padingUnits = 'max(10%,6rem)';
+
   //timelineSliders
   const dateSlider =
     document.querySelector('.timelineSliders .dateSlider') ?? false;
@@ -142,9 +156,13 @@ function initializeSliders() {
       perPage: 4,
       updateOnMove: true,
       focus: 'center',
+      padding: { right: padingUnits },
       breakpoints: {
         800: {
           perPage: 2,
+        },
+        600: {
+          perPage: 1,
         },
       },
     };
@@ -171,13 +189,18 @@ function initializeSliders() {
     const sliderOptions = {
       arrows: false,
       pagination: false,
-      perPage: 4,
+      perPage: 3,
       updateOnMove: true,
       focus: 'center',
       gap: '1.5rem',
+      start: 2,
+      padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
         800: {
           perPage: 2,
+        },
+        600: {
+          perPage: 1,
         },
       },
     };
@@ -196,15 +219,19 @@ function initializeSliders() {
     const sliderOptions = {
       arrows: false,
       pagination: false,
-      perPage: 4,
+      perPage: 3,
       updateOnMove: true,
       focus: 'center',
       gap: '1.5rem',
       type: 'loop',
       autoplay: true,
+      padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
         800: {
           perPage: 2,
+        },
+        600: {
+          perPage: 1,
         },
       },
     };

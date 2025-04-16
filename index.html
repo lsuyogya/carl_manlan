@@ -19,6 +19,9 @@
       crossorigin />
     <link
       rel="stylesheet"
+      href="./assets/styles/menu.css" />
+    <link
+      rel="stylesheet"
       href="./assets/styles/main.css" />
     <link
       rel="stylesheet"
@@ -45,7 +48,7 @@
     </script>
     <title>Home</title>
   </head>
-  <body class="flex flex-col min-h-screen bg-dark">
+  <body class="flex flex-col min-h-screen bg-dark overflow-x-clip max-w-screen">
     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">
         <path d="M0.855337 8.62432L7.97554 15.7444C8.14022 15.9092 8.36006 16 8.59446 16C8.82886 16 9.0487 15.9092 9.21338 15.7444L9.73774 15.2202C10.0789 14.8786 10.0789 14.3234 9.73774 13.9823L3.75873 8.00332L9.74437 2.01767C9.90905 1.85286 9.99998 1.63316 9.99998 1.39888C9.99998 1.16435 9.90905 0.944641 9.74437 0.779699L9.22002 0.255608C9.05521 0.0907954 8.8355 -1.01802e-07 8.6011 -1.22294e-07C8.36669 -1.42787e-07 8.14686 0.0907954 7.98217 0.255607L0.855337 7.38218C0.690265 7.54752 0.5996 7.76826 0.60012 8.00293C0.5996 8.2385 0.690265 8.45912 0.855337 8.62432Z" fill="black"/>
         </svg> -->
@@ -63,22 +66,163 @@
       </symbol>
     </svg>
 
-    <header>
-      <div
+    <header class="z-10">
+      <nav
         class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
-        <div class="logo text-4xl">Carl Manlan</div>
-        <nav>
-          <ul class="flex gap-6 text-xs align-middle content-center flex-wrap">
-            <li class="content-center">About</li>
-            <li class="content-center">Media</li>
-            <li class="content-center">Bluepint for Change</li>
-            <li class="content-center">Bluepint for Success</li>
-            <li class="content-center">
-              <button class="btn-primary">Get In Touch</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <div class="logo text-3xl md:text-4xl">Carl Manlan</div>
+
+        <ul class="flex gap-6 text-xs align-middle content-center flex-wrap">
+          <li class="content-center max-md:hidden">About</li>
+          <li class="content-center max-md:hidden">Media</li>
+          <li class="content-center max-md:hidden">Bluepint for Change</li>
+          <li class="content-center max-md:hidden">Bluepint for Success</li>
+          <li class="content-center max-md:hidden">
+            <button class="btn-primary">Get In Touch</button>
+          </li>
+          <li class="md:hidden">
+            <button
+              class="btn-hamburger"
+              popovertarget="hamburgerMenu">
+              <i data-feather="menu"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <nav
+        popover
+        role="menubar"
+        id="hamburgerMenu"
+        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
+        <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
+          <div class="logo text-3xl md:text-4xl uppercase text-primary">
+            Carl Manlan
+          </div>
+          <button
+            popovertarget="hamburgerMenu"
+            class="grid place-content-center">
+            <i
+              data-feather="x"
+              class="text-primary"
+              width="32"
+              height="32"></i>
+          </button>
+        </div>
+        <div class="body grow relative overflow-x-clip">
+          <div class="content flex flex-col gap-4">
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  About
+                </p>
+              </a>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Media
+                </p>
+              </a>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Change
+                </p>
+              </a>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Success
+                </p>
+              </a>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <p
+                class="text-xl"
+                role="heading">
+                Multi Menu
+              </p>
+              <details>
+                <summary class="flex justify-between">
+                  Item 1 <i data-feather="arrow-right"></i>
+                </summary>
+                <div
+                  class="detailBody px-(--menu-padding-x) absolute inset-0 bg-inherit">
+                  <div class="goback flex gap-6">
+                    <i data-feather="arrow-left"></i>
+                    <p role="text-xl font-bold">Main Menu</p>
+                  </div>
+                  <hr class="bg-gray-500 my-2" />
+                  <p
+                    role="heading"
+                    class="text-xl my-4 block">
+                    Item 1
+                  </p>
+                  <ul>
+                    <li><a href="#">SubItem 1</a></li>
+                    <li><a href="#">SubItem 2</a></li>
+                    <li><a href="#">SubItem 3</a></li>
+                    <li><a href="#">SubItem 4</a></li>
+                    <li><a href="#">SubItem 5</a></li>
+                    <li><a href="#">SubItem 6</a></li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <button class="btn-primary mt-4">Get In Touch</button>
+            </div>
+          </div>
+        </div>
+        <div class="foot px-(--menu-padding-x)">
+          <div class="social-links">
+            <ul class="flex gap-6 justify-around">
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main class="grow">
@@ -116,7 +260,7 @@
         <div
           class="cardWrapper mb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium">
           <div
-            class="card w-full flex flex-col border border-primary bg-primary rounded-xl text-light p-8 min-h-[500px] max-w-[400px] mx-auto">
+            class="card w-full flex flex-col border border-primary bg-primary rounded-xl text-light p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto">
             <img
               loading="lazy"
               src="./assets/icons/Circles.svg"
@@ -129,7 +273,7 @@
             <button class="btn-light">Read More</button>
           </div>
           <div
-            class="card w-full flex flex-col border border-secondary bg-secondary rounded-xl text-dark p-8 min-h-[500px] max-w-[400px] mx-auto">
+            class="card w-full flex flex-col border border-secondary bg-secondary rounded-xl text-dark p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto">
             <img
               loading="lazy"
               src="./assets/icons/Triangle.svg"
@@ -142,7 +286,7 @@
             <button class="btn-light">Read More</button>
           </div>
           <div
-            class="card w-full flex flex-col border border-light bg-dark rounded-xl text-light p-8 min-h-[500px] max-w-[400px] mx-auto">
+            class="card w-full flex flex-col border border-light bg-dark rounded-xl text-light p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto">
             <img
               loading="lazy"
               src="./assets/icons/Web.svg"
@@ -259,10 +403,10 @@
           src="./assets/images/Banner.jpeg"
           alt="Carl"
           class="w-full max-h-screen object-cover" />
-        <strong
+        <p
           class="uppercase text-primary font-medium text-[calc(4rem_+_10vw)] absolute inset-0 m-auto max-w-max max-h-max">
           Carl
-        </strong>
+        </p>
       </section>
 
       <!-- news -->
@@ -272,7 +416,8 @@
           <h2 class="text-dark text-3xl">
             latest articles, media features, and interviews
           </h2>
-          <div class="btnGroup flex gap-6 mt-20 mx-auto flex-wrap">
+          <div
+            class="btnGroup flex justify-around gap-6 mt-20 mx-auto flex-wrap">
             <button
               class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
               Logo
@@ -324,7 +469,7 @@
             <button class="btn-primary">View All</button>
           </div>
         </div>
-        <div class="splide newsSlider mt-10 py-20">
+        <div class="splide newsSlider py-20">
           <div class="splide__track">
             <ul class="splide__list">
               <li class="splide__slide">
@@ -394,8 +539,8 @@
 
       <!-- bp 4 success -->
       <section class="font-medium uppercase text-light pt-40 max-[800px]:pt-20">
-        <div class="relative">
-          <div class="splide bgImgSlider">
+        <div class="relative flex flex-col">
+          <div class="splide bgImgSlider max-lg:order-1 max-lg:mt-10">
             <div class="splide__track">
               <ul class="splide__list">
                 <li class="splide__slide">
@@ -422,7 +567,7 @@
             </div>
           </div>
           <div
-            class="container absolute inset-0 my-auto max-h-max flex flex-col">
+            class="container lg:absolute inset-0 my-auto max-h-max flex flex-col">
             <p class="text-3xl/relaxed">
               Blueprints for Success is Carl Manlan’s signature mentorship
               program, designed to guide ambitious individuals on their journey
@@ -438,7 +583,7 @@
 
       <!-- mason -->
       <section
-        class="container grid grid-cols-3 gap-4 text-light font-over-the-rainbow pb-20">
+        class="container grid md:grid-cols-3 gap-4 text-light font-over-the-rainbow pb-20">
         <div class="flex flex-col gap-4">
           <div class="imgWrapper w-full aspect-[3/2] bg-gray"></div>
           <p>
@@ -548,7 +693,7 @@
               src="./assets/images/ig5.jpeg"
               alt="" />
           </div>
-          <div class="flex justify-center gap-12 mt-10">
+          <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 mt-10">
             <button class="btn-secondary flex gap-2">
               <img
                 loading="lazy"
@@ -573,15 +718,15 @@
 
     <footer class="bg-gray py-4">
       <div
-        class="container flex gap-8 justify-between font-medium text-xs uppercase">
+        class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
         <nav class="grid place-content-center">
           <ul class="flex gap-6">
             <li><a href="#">Terms & Conditons</a></li>
             <li><a href="#">Privacy Policy</a></li>
           </ul>
         </nav>
-        <div class="social-links">
-          <ul class="flex gap-6">
+        <div class="social-links max-md:w-full">
+          <ul class="flex justify-around gap-6">
             <li>
               <img
                 loading="lazy"

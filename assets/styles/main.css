@@ -79,6 +79,21 @@ main > section:first-child {
   background-repeat: no-repeat;
 }
 
+.dateSlider li:last-child:after {
+  content: '';
+  position: absolute;
+  height: 0.6rem;
+  width: 0.6rem;
+  top: 50%;
+  display: block;
+  right: -5px;
+  z-index: 1;
+  transform: translateY(-50%);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDggOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cG9seWdvbiBwb2ludHM9IjAsMCA4LDQgMCw4Ii8+PC9zdmc+');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .timelineSliders .imgSlider li img {
   filter: blur(5px);
   opacity: 0.6;
