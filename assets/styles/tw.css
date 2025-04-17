@@ -4,6 +4,8 @@
 @source not "../fonts";
 @source not "../icons";
 @source not "../images";
+@source not "../../.vscode";
+@source not "../../.git";
 
 @font-face {
   font-family: Oswald;
