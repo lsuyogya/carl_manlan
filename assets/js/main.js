@@ -192,7 +192,7 @@ function initializeSliders() {
       perPage: 3,
       updateOnMove: true,
       focus: 'center',
-      gap: '1.5rem',
+      gap: '3rem',
       start: 2,
       padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
@@ -238,4 +238,30 @@ function initializeSliders() {
     const slider = new Splide(bgImgSlider, sliderOptions);
     slider.mount();
   }
+
+  const logosSlider = new Splide('.logos-slider', {
+    type: 'slide',
+    autoWidth: true,
+    gap: '1rem',
+    pagination: false,
+    arrows: false,
+  });
+  const Components = logosSlider.Components;
+  logosSlider.on('resized', function () {
+    const isOverflow = Components.Layout.isOverflow();
+    const list = Components.Elements.list;
+    const lastSlide = Components.Slides.getAt(logosSlider.length - 1);
+
+    if (lastSlide) {
+      // Toggles `justify-content: center`
+      list.style.justifyContent = isOverflow ? '' : 'center';
+
+      // Remove the last margin
+      if (!isOverflow) {
+        lastSlide.slide.style.marginRight = '';
+      }
+    }
+  });
+
+  logosSlider.mount();
 }

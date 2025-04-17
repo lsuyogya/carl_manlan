@@ -33,6 +33,9 @@
       src="./assets/js/feather.min.js"
       defer></script>
     <script
+      src="./assets/js/seedrandom.min.js"
+      defer></script>
+    <script
       src="./assets/js/main.js"
       defer></script>
     <script
@@ -226,9 +229,9 @@
     </header>
 
     <main class="grow">
-      <section class="bannerSection w-full relative flex">
+      <section class="bannerSection font-medium w-full relative flex">
         <div
-          class="hexBg bgEffect absolute inset-0 -z-1"
+          class="hexBg pattern1 linear-grad-mask bgEffect absolute inset-0 -z-1"
           data-gradX="0.8"
           data-gradY="0.6"></div>
         <div
@@ -419,123 +422,137 @@
           <h2 class="text-dark text-3xl">
             latest articles, media features, and interviews
           </h2>
-          <div
-            class="btnGroup flex justify-around gap-6 mt-20 mx-auto flex-wrap">
-            <button
-              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-              Logo
-            </button>
-            <button
-              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-              Logo
-            </button>
-            <button
-              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-              Logo
-            </button>
-            <button
-              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-              Logo
-            </button>
-            <button
-              class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-              Logo
-            </button>
-          </div>
-        </div>
-        <div class="container">
-          <div class="flex justify-between">
-            <div class="btnGroup gap-4 flex">
-              <button
-                class="rounded-full border border-primary w-10 h-10 relative"
-                data-prev>
-                <svg
-                  width="10"
-                  height="16"
-                  aria-hidden="true"
-                  class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                  <use href="#icon-arrow-right"></use>
-                </svg>
-              </button>
-              <button
-                class="rounded-full border border-primary w-10 h-10 relative"
-                data-next>
-                <svg
-                  width="10"
-                  height="16"
-                  aria-hidden="true"
-                  class="-scale-x-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                  <use href="#icon-arrow-right"></use>
-                </svg>
-              </button>
+          <div class="splide logos-slider mt-10 !visible">
+            <div class="splide__track">
+              <!-- <ul class="splide__list btnGroup flex justify-around gap-6 mx-auto flex-wrap"> -->
+              <ul class="splide__list btnGroup">
+                <li class="splide__slide">
+                  <button
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    Logo
+                  </button>
+                </li>
+                <li class="splide__slide">
+                  <button
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    Logo
+                  </button>
+                </li>
+                <li class="splide__slide">
+                  <button
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    Logo
+                  </button>
+                </li>
+                <li class="splide__slide">
+                  <button
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    Logo
+                  </button>
+                </li>
+                <li class="splide__slide">
+                  <button
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    Logo
+                  </button>
+                </li>
+              </ul>
             </div>
-            <button class="btn-primary">View All</button>
           </div>
-        </div>
-        <div class="splide newsSlider py-20">
-          <div class="splide__track">
-            <ul class="splide__list">
-              <li class="splide__slide">
-                <div class="imgWrapper">
-                  <img
-                    loading="lazy"
-                    src=""
-                    alt="" />
-                </div>
-                <p class="text-start text-xl">
-                  La santé mentale reste taboue dans l’agenda du développement
-                  humain en Afrique
-                </p>
-              </li>
-              <li class="splide__slide">
-                <div class="imgWrapper">
-                  <img
-                    loading="lazy"
-                    src=""
-                    alt="" />
-                </div>
-                <p class="text-start text-xl">
-                  La santé mentale reste taboue dans l’agenda du développement
-                  humain en Afrique
-                </p>
-              </li>
-              <li class="splide__slide">
-                <div class="imgWrapper">
-                  <img
-                    loading="lazy"
-                    src=""
-                    alt="" />
-                </div>
-                <p class="text-start text-xl">
-                  La santé mentale reste taboue dans l’agenda du développement
-                  humain en Afrique
-                </p>
-              </li>
-              <li class="splide__slide">
-                <div class="imgWrapper">
-                  <img
-                    loading="lazy"
-                    src=""
-                    alt="" />
-                </div>
-                <p class="text-start text-xl">
-                  La santé mentale reste taboue dans l’agenda du développement
-                  humain en Afrique
-                </p>
-              </li>
-              <li class="splide__slide">
-                <div class="imgWrapper">
-                  <img
-                    loading="lazy"
-                    src=""
-                    alt="" />
-                </div>
-                <p class="text-start text-xl">
-                  La santé mentale reste taboue dans l’agenda du développement
-                  humain en Afrique
-                </p>
-              </li>
-            </ul>
+          <div class="container mt-10">
+            <div class="flex justify-between">
+              <div class="btnGroup gap-4 flex">
+                <button
+                  class="rounded-full border border-primary w-12 h-12 relative"
+                  data-prev>
+                  <svg
+                    width="14"
+                    height="22"
+                    aria-hidden="true"
+                    class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                    <use href="#icon-arrow-right"></use>
+                  </svg>
+                </button>
+                <button
+                  class="rounded-full border border-primary w-12 h-12 relative"
+                  data-next>
+                  <svg
+                    width="14"
+                    height="22"
+                    aria-hidden="true"
+                    class="-scale-x-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                    <use href="#icon-arrow-right"></use>
+                  </svg>
+                </button>
+              </div>
+              <button class="btn-primary">View All</button>
+            </div>
+          </div>
+          <div class="splide newsSlider pt-10 pb-20">
+            <div class="splide__track">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <div class="imgWrapper">
+                    <img
+                      loading="lazy"
+                      src=""
+                      alt="" />
+                  </div>
+                  <p class="text-start text-xl">
+                    La santé mentale reste taboue dans l’agenda du développement
+                    humain en Afrique
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <div class="imgWrapper">
+                    <img
+                      loading="lazy"
+                      src=""
+                      alt="" />
+                  </div>
+                  <p class="text-start text-xl">
+                    La santé mentale reste taboue dans l’agenda du développement
+                    humain en Afrique
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <div class="imgWrapper">
+                    <img
+                      loading="lazy"
+                      src=""
+                      alt="" />
+                  </div>
+                  <p class="text-start text-xl">
+                    La santé mentale reste taboue dans l’agenda du développement
+                    humain en Afrique
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <div class="imgWrapper">
+                    <img
+                      loading="lazy"
+                      src=""
+                      alt="" />
+                  </div>
+                  <p class="text-start text-xl">
+                    La santé mentale reste taboue dans l’agenda du développement
+                    humain en Afrique
+                  </p>
+                </li>
+                <li class="splide__slide">
+                  <div class="imgWrapper">
+                    <img
+                      loading="lazy"
+                      src=""
+                      alt="" />
+                  </div>
+                  <p class="text-start text-xl">
+                    La santé mentale reste taboue dans l’agenda du développement
+                    humain en Afrique
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

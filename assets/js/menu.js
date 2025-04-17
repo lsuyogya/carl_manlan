@@ -39,7 +39,7 @@ function stickyHeader() {
 
   document.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    console.log({ prevScrollY: prevScrollY, scrollY: scrollY });
+    // console.log({ prevScrollY: prevScrollY, scrollY: scrollY });
     if (scrollY > 10) {
       header.classList.add('bg-dark');
       header.classList.remove('bg-transparent');
