@@ -40,29 +40,32 @@
 }
 
 [class*='btn-'] {
-  @apply px-6 py-2 rounded-full uppercase max-w-max;
+  @apply px-6 py-2 rounded-full uppercase max-w-max cursor-pointer;
 }
 
 .btn-primary {
   @apply bg-primary text-light border-2 border-primary inline-block;
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
-    @apply bg-light text-primary;
+    /* @apply bg-light text-primary; */
+    @apply bg-transparent;
   }
 }
 .btn-light {
   @apply bg-light text-dark border-2 border-light inline-block;
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
-    @apply bg-dark text-light;
+    /* @apply bg-dark text-light; */
+    @apply bg-transparent;
   }
 }
 
 .btn-secondary {
   @apply bg-secondary text-dark border-2 border-secondary inline-block;
-  transition: background-color 400ms ease, color 400ms ease;
+  transition: background-color 400ms ease, color 400ms ease, filter 400ms ease;
   &:hover {
     @apply bg-dark text-secondary;
+    /* @apply bg-transparent; */
     img {
       filter: brightness(0) saturate(100%) invert(82%) sepia(21%) saturate(340%)
         hue-rotate(122deg) brightness(96%) contrast(89%);

@@ -647,6 +647,27 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+  .group-hover\:text-primary {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-primary);
+      }
+    }
+  }
+  .hover\:\!text-light {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-light) !important;
+      }
+    }
+  }
+  .hover\:\!text-primary {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-primary) !important;
+      }
+    }
+  }
   .max-\[800px\]\:pt-20 {
     @media (width < 800px) {
       padding-top: calc(var(--spacing) * 20);
@@ -769,6 +790,7 @@
 }
 [class*='btn-'] {
   max-width: max-content;
+  cursor: pointer;
   border-radius: calc(infinity * 1px);
   padding-inline: calc(var(--spacing) * 6);
   padding-block: calc(var(--spacing) * 2);
@@ -783,8 +805,7 @@
   color: var(--color-light);
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
-    background-color: var(--color-light);
-    color: var(--color-primary);
+    background-color: transparent;
   }
 }
 .btn-light {
@@ -796,8 +817,7 @@
   color: var(--color-dark);
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
-    background-color: var(--color-dark);
-    color: var(--color-light);
+    background-color: transparent;
   }
 }
 .btn-secondary {
@@ -807,7 +827,7 @@
   border-color: var(--color-secondary);
   background-color: var(--color-secondary);
   color: var(--color-dark);
-  transition: background-color 400ms ease, color 400ms ease;
+  transition: background-color 400ms ease, color 400ms ease, filter 400ms ease;
   &:hover {
     background-color: var(--color-dark);
     color: var(--color-secondary);
