@@ -2,50 +2,58 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="preload"
       href="./assets/fonts/Oswald-VariableFont_wght.ttf"
       as="font"
       type="font/ttf"
-      crossorigin />
+      crossorigin
+    />
     <link
       rel="preload"
       href="./assets/fonts/OvertheRainbow-Regular.ttf"
       as="font"
       type="font/ttf"
-      crossorigin />
-    <link
-      rel="stylesheet"
-      href="./assets/styles/menu.css" />
-    <link
-      rel="stylesheet"
-      href="./assets/styles/main.css" />
-    <link
-      rel="stylesheet"
-      href="./assets/styles/output.css" />
-    <link
-      rel="stylesheet"
-      href="./assets/styles/splide.min.css" />
-    <script
-      src="./assets/js/feather.min.js"
-      defer></script>
-    <script
-      src="./assets/js/seedrandom.min.js"
-      defer></script>
-    <script
-      src="./assets/js/main.js"
-      defer></script>
-    <script
-      src="./assets/js/menu.js"
-      defer></script>
-    <script
-      src="./assets/js/splide.min.js"
-      defer></script>
+      crossorigin
+    />
+    <link rel="stylesheet" href="./assets/styles/menu.css" />
+    <link rel="stylesheet" href="./assets/styles/lemis.min.css" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <link rel="stylesheet" href="./assets/styles/output.css" />
+    <link rel="stylesheet" href="./assets/styles/splide.min.css" />
+    <script src="./assets/js/feather.min.js" defer></script>
+    <script src="./assets/js/seedrandom.min.js" defer></script>
+    <script src="./assets/js/main.js" defer></script>
+    <script src="./assets/js/menu.js" defer></script>
+    <script src="./assets/js/splide.min.js" defer></script>
+    <script src="./assets/js/lenis.min.js" defer></script>
+    <script src="./assets/js/gsap.min.js" defer></script>
+    <script src="./assets/js/gsapScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/split-type" defer></script>
     <script defer>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const lenis = new Lenis();
+        window.lenis = lenis; // Expose Lenis instance globally for debugging
+        // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+        lenis.on("scroll", ScrollTrigger.update);
+
+        gsap.registerPlugin(ScrollTrigger);
+        // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+        // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+        });
+
+        // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+        gsap.ticker.lagSmoothing(0);
+        console.log(gsap);
+      });
+    </script>
+    <script src="./assets/js/homepageTimeline.js"></script>
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
         feather.replace();
       });
     </script>
@@ -56,22 +64,19 @@
         <path d="M0.855337 8.62432L7.97554 15.7444C8.14022 15.9092 8.36006 16 8.59446 16C8.82886 16 9.0487 15.9092 9.21338 15.7444L9.73774 15.2202C10.0789 14.8786 10.0789 14.3234 9.73774 13.9823L3.75873 8.00332L9.74437 2.01767C9.90905 1.85286 9.99998 1.63316 9.99998 1.39888C9.99998 1.16435 9.90905 0.944641 9.74437 0.779699L9.22002 0.255608C9.05521 0.0907954 8.8355 -1.01802e-07 8.6011 -1.22294e-07C8.36669 -1.42787e-07 8.14686 0.0907954 7.98217 0.255607L0.855337 7.38218C0.690265 7.54752 0.5996 7.76826 0.60012 8.00293C0.5996 8.2385 0.690265 8.45912 0.855337 8.62432Z" fill="black"/>
         </svg> -->
 
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      style="display: none">
-      <symbol
-        id="icon-arrow-right"
-        viewBox="0 0 10 16"
-        fill="none">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol id="icon-arrow-right" viewBox="0 0 10 16" fill="none">
         <path
           d="M0.855337 8.62432L7.97554 15.7444C8.14022 15.9092 8.36006 16 8.59446 16C8.82886 16 9.0487 15.9092 9.21338 15.7444L9.73774 15.2202C10.0789 14.8786 10.0789 14.3234 9.73774 13.9823L3.75873 8.00332L9.74437 2.01767C9.90905 1.85286 9.99998 1.63316 9.99998 1.39888C9.99998 1.16435 9.90905 0.944641 9.74437 0.779699L9.22002 0.255608C9.05521 0.0907954 8.8355 -1.01802e-07 8.6011 -1.22294e-07C8.36669 -1.42787e-07 8.14686 0.0907954 7.98217 0.255607L0.855337 7.38218C0.690265 7.54752 0.5996 7.76826 0.60012 8.00293C0.5996 8.2385 0.690265 8.45912 0.855337 8.62432Z"
-          fill="currentColor" />
+          fill="currentColor"
+        />
       </symbol>
     </svg>
 
     <header class="z-10">
       <nav
-        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
+        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium"
+      >
         <div class="logo text-3xl md:text-4xl">Carl Manlan</div>
 
         <ul class="flex gap-6 text-xs align-middle content-center flex-wrap">
@@ -83,9 +88,7 @@
             <button class="btn-primary">Get In Touch</button>
           </li>
           <li class="md:hidden">
-            <button
-              class="btn-hamburger"
-              popovertarget="hamburgerMenu">
+            <button class="btn-hamburger" popovertarget="hamburgerMenu">
               <i data-feather="menu"></i>
             </button>
           </li>
@@ -95,65 +98,39 @@
         popover
         role="menubar"
         id="hamburgerMenu"
-        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
+        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start"
+      >
         <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
           <div class="logo text-3xl md:text-4xl uppercase text-primary">
             Carl Manlan
           </div>
           <button
             popovertarget="hamburgerMenu"
-            class="grid place-content-center">
-            <i
-              data-feather="x"
-              class="text-primary"
-              width="32"
-              height="32"></i>
+            class="grid place-content-center"
+          >
+            <i data-feather="x" class="text-primary" width="32" height="32"></i>
           </button>
         </div>
         <div class="body grow relative overflow-x-clip">
           <div class="content flex flex-col gap-4">
             <div class="menuBlock px-(--menu-padding-x)">
-              <a
-                href=""
-                class="contents">
-                <p
-                  class="text-xl"
-                  role="heading">
-                  About
-                </p>
+              <a href="" class="contents">
+                <p class="text-xl" role="heading">About</p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a
-                href=""
-                class="contents">
-                <p
-                  class="text-xl"
-                  role="heading">
-                  Media
-                </p>
+              <a href="" class="contents">
+                <p class="text-xl" role="heading">Media</p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a
-                href=""
-                class="contents">
-                <p
-                  class="text-xl"
-                  role="heading">
-                  Blueprint For Change
-                </p>
+              <a href="" class="contents">
+                <p class="text-xl" role="heading">Blueprint For Change</p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a
-                href=""
-                class="contents">
-                <p
-                  class="text-xl"
-                  role="heading">
-                  Blueprint For Success
-                </p>
+              <a href="" class="contents">
+                <p class="text-xl" role="heading">Blueprint For Success</p>
               </a>
             </div>
             <!-- <div class="menuBlock px-(--menu-padding-x)">
@@ -198,29 +175,19 @@
           <div class="social-links">
             <ul class="flex gap-6 justify-around">
               <li>
-                <img
-                  loading="lazy"
-                  src="./assets/icons/Linkedin.svg" />
+                <img loading="lazy" src="./assets/icons/Linkedin.svg" />
               </li>
               <li>
-                <img
-                  loading="lazy"
-                  src="./assets/icons/Facebook.svg" />
+                <img loading="lazy" src="./assets/icons/Facebook.svg" />
               </li>
               <li>
-                <img
-                  loading="lazy"
-                  src="./assets/icons/X.svg" />
+                <img loading="lazy" src="./assets/icons/X.svg" />
               </li>
               <li>
-                <img
-                  loading="lazy"
-                  src="./assets/icons/Youtube.svg" />
+                <img loading="lazy" src="./assets/icons/Youtube.svg" />
               </li>
               <li>
-                <img
-                  loading="lazy"
-                  src="./assets/icons/Instagram.svg" />
+                <img loading="lazy" src="./assets/icons/Instagram.svg" />
               </li>
             </ul>
           </div>
@@ -233,18 +200,23 @@
         <div
           class="hexBg pattern1 linear-grad-mask bgEffect absolute inset-0 -z-1"
           data-gradX="0.8"
-          data-gradY="0.6"></div>
+          data-gradY="0.6"
+        ></div>
         <div
-          class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center">
+          class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center"
+        >
           <div
-            class="text-wrapper lg:py-8 uppercase text-white items-end content-center">
+            class="text-wrapper lg:py-8 uppercase text-white items-end content-center"
+          >
             <h1
-              class="text-primary text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+              data-by=".char"
+              class="text-primary txtAppear text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+            >
               Innovator <br />
               Intraprenuer <br />
               Catalyst
             </h1>
-            <p class="text-xl lg:text-3xl my-10">
+            <p class="text-xl lg:text-3xl my-10 txtAppear" data-by=".word">
               Carl is committed to creating
               <span class="text-primary"> impactful initiatives </span> that
               drive community transformation worldwide.
@@ -256,7 +228,8 @@
               loading="eager"
               src="./assets/images/Carl_Alpha.png"
               class="max-h-[80vh] mx-auto mt-auto"
-              alt="" />
+              alt=""
+            />
           </div>
         </div>
       </section>
@@ -264,14 +237,17 @@
       <!-- featured cards -->
       <section class="container">
         <div
-          class="cardWrapper mb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium">
+          class="cardWrapper mb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium"
+        >
           <div
-            class="card w-full flex flex-col border border-primary bg-primary rounded-xl text-light p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto">
+            class="card w-full flex flex-col border border-primary bg-primary rounded-xl text-light p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto"
+          >
             <img
               loading="lazy"
               src="./assets/icons/Circles.svg"
               class="max-h-20 max-w-max"
-              alt="" />
+              alt=""
+            />
 
             <p class="text-2xl lg:text-3xl mt-auto my-8">
               Economic Development and Financial Inclusion
@@ -279,12 +255,14 @@
             <button class="btn-light hover:!text-light">Read More</button>
           </div>
           <div
-            class="card w-full flex flex-col border border-secondary bg-secondary rounded-xl text-dark p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto">
+            class="card w-full flex flex-col border border-secondary bg-secondary rounded-xl text-dark p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto"
+          >
             <img
               loading="lazy"
               src="./assets/icons/Triangle.svg"
               class="max-h-20 max-w-max"
-              alt="" />
+              alt=""
+            />
 
             <p class="text-2xl lg:text-3xl mt-auto my-8">
               African Leadership & Governance
@@ -292,12 +270,14 @@
             <button class="btn-light">Read More</button>
           </div>
           <div
-            class="card w-full flex flex-col border border-light bg-dark rounded-xl text-light p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto">
+            class="card w-full flex flex-col border border-light bg-dark rounded-xl text-light p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto"
+          >
             <img
               loading="lazy"
               src="./assets/icons/Web.svg"
               class="max-h-20 max-w-max"
-              alt="" />
+              alt=""
+            />
 
             <p class="text-2xl lg:text-3xl mt-auto my-8">
               Youth and Human <br />
@@ -346,7 +326,8 @@
                   <img
                     loading="lazy"
                     src="./assets/images/timelineImg1.png"
-                    alt="" />
+                    alt=""
+                  />
                   <p class="text-center uppercase">
                     Born and raised in Côte d’Ivoire
                   </p>
@@ -355,7 +336,8 @@
                   <img
                     loading="lazy"
                     src="./assets/images/timelineImg2.png"
-                    alt="" />
+                    alt=""
+                  />
                   <p class="text-center uppercase">
                     Born and raised in Côte d’Ivoire
                   </p>
@@ -364,7 +346,8 @@
                   <img
                     loading="lazy"
                     src="./assets/images/timelineImg2.png"
-                    alt="" />
+                    alt=""
+                  />
                   <p class="text-center uppercase">
                     Born and raised in Côte d’Ivoire
                   </p>
@@ -373,7 +356,8 @@
                   <img
                     loading="lazy"
                     src="./assets/images/timelineImg2.png"
-                    alt="" />
+                    alt=""
+                  />
                   <p class="text-center uppercase">
                     Born and raised in Côte d’Ivoire
                   </p>
@@ -382,7 +366,8 @@
                   <img
                     loading="lazy"
                     src="./assets/images/timelineImg2.png"
-                    alt="" />
+                    alt=""
+                  />
                   <p class="text-center uppercase">
                     Born and raised in Côte d’Ivoire
                   </p>
@@ -391,7 +376,8 @@
                   <img
                     loading="lazy"
                     src="./assets/images/timelineImg2.png"
-                    alt="" />
+                    alt=""
+                  />
                   <p class="text-center uppercase">
                     Born and raised in Côte d’Ivoire
                   </p>
@@ -414,9 +400,12 @@
           muted
           loop
           src="./assets/videos/sampleVid.mp4"
-          class="w-full max-h-screen object-cover"></video>
+          class="w-full max-h-screen object-cover"
+        ></video>
         <p
-          class="uppercase text-primary font-medium text-[calc(4rem_+_10vw)] absolute inset-0 m-auto max-w-max max-h-max">
+          class="uppercase text-primary font-medium text-[calc(4rem_+_10vw)] absolute inset-0 m-auto max-w-max max-h-max txtAppear"
+          data-by=".char"
+        >
           Carl
         </p>
       </section>
@@ -424,8 +413,10 @@
       <!-- news -->
       <section class="font-medium uppercase bg-light text-center">
         <div class="container py-20">
-          <h1 class="text-primary text-3xl">In The News</h1>
-          <h2 class="text-dark text-3xl">
+          <h1 class="text-primary text-3xl txtAppear" data-by=".char">
+            In The News
+          </h1>
+          <h2 class="text-dark text-3xl txtAppear" data-by=".word">
             latest articles, media features, and interviews
           </h2>
           <div class="splide logos-slider mt-10 !visible">
@@ -434,31 +425,36 @@
               <ul class="splide__list btnGroup">
                 <li class="splide__slide">
                   <button
-                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium"
+                  >
                     Logo
                   </button>
                 </li>
                 <li class="splide__slide">
                   <button
-                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium"
+                  >
                     Logo
                   </button>
                 </li>
                 <li class="splide__slide">
                   <button
-                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium"
+                  >
                     Logo
                   </button>
                 </li>
                 <li class="splide__slide">
                   <button
-                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium"
+                  >
                     Logo
                   </button>
                 </li>
                 <li class="splide__slide">
                   <button
-                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium"
+                  >
                     Logo
                   </button>
                 </li>
@@ -471,23 +467,27 @@
             <div class="btnGroup gap-4 flex">
               <button
                 class="rounded-full border border-primary w-12 h-12 relative group"
-                data-prev>
+                data-prev
+              >
                 <svg
                   width="14"
                   height="22"
                   aria-hidden="true"
-                  class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:text-primary transition">
+                  class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:text-primary transition"
+                >
                   <use href="#icon-arrow-right"></use>
                 </svg>
               </button>
               <button
                 class="rounded-full border border-primary w-12 h-12 relative group"
-                data-next>
+                data-next
+              >
                 <svg
                   width="14"
                   height="22"
                   aria-hidden="true"
-                  class="-scale-x-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:text-primary transition">
+                  class="-scale-x-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:text-primary transition"
+                >
                   <use href="#icon-arrow-right"></use>
                 </svg>
               </button>
@@ -570,31 +570,24 @@
             <div class="splide__track">
               <ul class="splide__list">
                 <li class="splide__slide">
-                  <img
-                    src="./assets/images/img1.png"
-                    alt="" />
+                  <img src="./assets/images/img1.png" alt="" />
                 </li>
                 <li class="splide__slide">
-                  <img
-                    src="./assets/images/img1.png"
-                    alt="" />
+                  <img src="./assets/images/img1.png" alt="" />
                 </li>
                 <li class="splide__slide">
-                  <img
-                    src="./assets/images/img2.png"
-                    alt="" />
+                  <img src="./assets/images/img2.png" alt="" />
                 </li>
                 <li class="splide__slide">
-                  <img
-                    src="./assets/images/img3.png"
-                    alt="" />
+                  <img src="./assets/images/img3.png" alt="" />
                 </li>
               </ul>
             </div>
           </div>
           <div
-            class="container lg:absolute inset-0 my-auto max-h-max flex flex-col">
-            <p class="text-3xl/relaxed">
+            class="container lg:absolute inset-0 my-auto max-h-max flex flex-col"
+          >
+            <p class="text-3xl/relaxed txtAppear" data-by=".word">
               Blueprints for Success is Carl Manlan’s signature mentorship
               program, designed to guide ambitious individuals on their journey
               toward
@@ -609,7 +602,8 @@
 
       <!-- mason -->
       <section
-        class="container grid md:grid-cols-3 gap-4 text-light font-over-the-rainbow pb-20">
+        class="container grid md:grid-cols-3 gap-4 text-light font-over-the-rainbow pb-20"
+      >
         <div class="flex flex-col gap-4">
           <div class="imgWrapper w-full aspect-[3/2] bg-gray"></div>
           <p>
@@ -671,7 +665,8 @@
                   required
                   class="rounded-full bg-light/25 px-8 py-4"
                   id="first-name"
-                  type="text" />
+                  type="text"
+                />
               </div>
               <div class="formGrp grid gap-2 w-full">
                 <label for="last-name">Last Name*</label>
@@ -679,7 +674,8 @@
                   required
                   class="rounded-full bg-light/25 px-8 py-4"
                   id="last-name"
-                  type="text" />
+                  type="text"
+                />
               </div>
             </div>
             <div class="formGrp grid gap-2 w-full">
@@ -688,11 +684,10 @@
                 required
                 class="rounded-full bg-light/25 px-8 py-4"
                 id="email"
-                type="email" />
+                type="email"
+              />
             </div>
-            <button
-              type="submit"
-              class="btn-primary hover:!text-primary">
+            <button type="submit" class="btn-primary hover:!text-primary">
               Get In Touch
             </button>
           </form>
@@ -703,21 +698,11 @@
       <section class="uppercase font-medium py-20">
         <div class="container">
           <div class="ig grid grid-flow-col gap-6">
-            <img
-              src="./assets/images/ig1.png"
-              alt="" />
-            <img
-              src="./assets/images/ig2.png"
-              alt="" />
-            <img
-              src="./assets/images/ig3.jpeg"
-              alt="" />
-            <img
-              src="./assets/images/ig4.png"
-              alt="" />
-            <img
-              src="./assets/images/ig5.jpeg"
-              alt="" />
+            <img src="./assets/images/ig1.png" alt="" />
+            <img src="./assets/images/ig2.png" alt="" />
+            <img src="./assets/images/ig3.jpeg" alt="" />
+            <img src="./assets/images/ig4.png" alt="" />
+            <img src="./assets/images/ig5.jpeg" alt="" />
           </div>
           <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 mt-10">
             <button class="btn-secondary !flex gap-2">
@@ -725,7 +710,8 @@
                 loading="lazy"
                 height="20"
                 width="20"
-                src="./assets/icons/Instagram.svg" />
+                src="./assets/icons/Instagram.svg"
+              />
               <span> Follow Carl on Instagram </span>
             </button>
 
@@ -734,7 +720,8 @@
                 loading="lazy"
                 height="20"
                 width="20"
-                src="./assets/icons/Linkedin.svg" />
+                src="./assets/icons/Linkedin.svg"
+              />
               <span> Follow Carl on Linkedin </span>
             </button>
           </div>
@@ -744,7 +731,8 @@
 
     <footer class="bg-gray py-4">
       <div
-        class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
+        class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase"
+      >
         <nav class="grid place-content-center">
           <ul class="flex gap-6">
             <li><a href="#">Terms & Conditons</a></li>
@@ -754,29 +742,19 @@
         <div class="social-links max-md:w-full">
           <ul class="flex justify-around gap-6">
             <li>
-              <img
-                loading="lazy"
-                src="./assets/icons/Linkedin.svg" />
+              <img loading="lazy" src="./assets/icons/Linkedin.svg" />
             </li>
             <li>
-              <img
-                loading="lazy"
-                src="./assets/icons/Facebook.svg" />
+              <img loading="lazy" src="./assets/icons/Facebook.svg" />
             </li>
             <li>
-              <img
-                loading="lazy"
-                src="./assets/icons/X.svg" />
+              <img loading="lazy" src="./assets/icons/X.svg" />
             </li>
             <li>
-              <img
-                loading="lazy"
-                src="./assets/icons/Youtube.svg" />
+              <img loading="lazy" src="./assets/icons/Youtube.svg" />
             </li>
             <li>
-              <img
-                loading="lazy"
-                src="./assets/icons/Instagram.svg" />
+              <img loading="lazy" src="./assets/icons/Instagram.svg" />
             </li>
           </ul>
         </div>
