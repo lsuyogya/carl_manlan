@@ -35,8 +35,15 @@
   font-family: var(--font-oswald);
   text-rendering: geometricPrecision;
 }
-.container {
-  @apply mx-auto px-4;
+@layer base {
+  section,
+  .pin-spacer {
+    @apply bg-dark;
+  }
+
+  .container {
+    @apply mx-auto px-4;
+  }
 }
 
 [class*='btn-'] {

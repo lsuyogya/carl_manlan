@@ -1,29 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   BannerBgEffect();
   alignBleedOut();
   initializeSliders();
   hideBrokenImg();
-  window.addEventListener("resize", BannerBgEffect);
-  window.addEventListener("resize", alignBleedOut);
+  curtainOpener();
+  window.addEventListener('resize', BannerBgEffect);
+  window.addEventListener('resize', alignBleedOut);
+  window.addEventListener('resize', curtainOpener);
 });
 
 function hideBrokenImg() {
-  document.querySelectorAll("img").forEach(function (img) {
+  document.querySelectorAll('img').forEach(function (img) {
     img.onerror = function () {
-      this.style.display = "none";
+      this.style.display = 'none';
     };
-    if (img.src.includes(".html")) {
-      img.style.display = "none";
+    if (img.src.includes('.html')) {
+      img.style.display = 'none';
     }
   });
 }
 
 function BannerBgEffect() {
-  const hexBgs = document.querySelectorAll(".hexBg");
+  const hexBgs = document.querySelectorAll('.hexBg');
 
   // Clear any existing content first to prevent duplication on resize
   hexBgs.forEach((hexBg) => {
-    hexBg.innerHTML = "";
+    hexBg.innerHTML = '';
 
     const boxDimension = 130;
     const rect = hexBg.getBoundingClientRect();
@@ -35,12 +37,12 @@ function BannerBgEffect() {
 
     // Create grid
     for (let i = 0; i < rows; i++) {
-      const row = document.createElement("div");
-      row.classList.add("row");
+      const row = document.createElement('div');
+      row.classList.add('row');
 
       for (let j = 0; j < columns; j++) {
-        const column = document.createElement("div");
-        column.classList.add("col");
+        const column = document.createElement('div');
+        column.classList.add('col');
         row.appendChild(column);
       }
 
@@ -49,14 +51,14 @@ function BannerBgEffect() {
     // Set initial gradient position (center of element)
     resetGradient(hexBg);
 
-    if (hexBg.classList.contains(".bgEffect")) return;
+    if (hexBg.classList.contains('.bgEffect')) return;
     // Event handlers
     parentElement = hexBg.parentElement;
-    parentElement.addEventListener("mouseleave", () => {
+    parentElement.addEventListener('mouseleave', () => {
       resetGradient(hexBg);
     });
 
-    parentElement.addEventListener("mousemove", (e) => {
+    parentElement.addEventListener('mousemove', (e) => {
       moveGradient(e, hexBg);
     });
   });
@@ -89,11 +91,11 @@ function moveGradient(event, element) {
 function resetGradient(element) {
   const rect = element.getBoundingClientRect();
   // Set target to right edge when not hovering
-  targetX = rect.width * element.getAttribute("data-gradX");
-  targetY = rect.height * element.getAttribute("data-gradY");
+  targetX = rect.width * element.getAttribute('data-gradX');
+  targetY = rect.height * element.getAttribute('data-gradY');
   isHovering = false;
 
-  element.style.setProperty("--size", `${rect.height * 1.2}px`);
+  element.style.setProperty('--size', `${rect.height * 1.2}px`);
   // Ensure animation continues until we reach the target
   if (!animationFrameId) {
     animationFrameId = requestAnimationFrame(() =>
@@ -109,8 +111,8 @@ function updateGradientPosition(element) {
   currentY = currentY + (targetY - currentY) * easing;
 
   // Apply the new position
-  element.style.setProperty("--x", `${currentX}px`);
-  element.style.setProperty("--y", `${currentY}px`);
+  element.style.setProperty('--x', `${currentX}px`);
+  element.style.setProperty('--y', `${currentY}px`);
 
   // Continue animation if still hovering or if we haven't reached the target
   const distanceX = Math.abs(currentX - targetX);
@@ -128,11 +130,11 @@ function updateGradientPosition(element) {
 
 function alignBleedOut() {
   const bleedOutRightWrapper =
-    document.querySelector(".bleedOutRight") ?? false;
+    document.querySelector('.bleedOutRight') ?? false;
   if (!bleedOutRightWrapper) return;
 
   const siblingContainer =
-    bleedOutRightWrapper.parentElement.querySelector(".container");
+    bleedOutRightWrapper.parentElement.querySelector('.container');
 
   const computedStyles = window.getComputedStyle(siblingContainer);
   bleedOutRightWrapper.style.marginInlineStart =
@@ -142,20 +144,20 @@ function alignBleedOut() {
 }
 
 function initializeSliders() {
-  const padingUnits = "max(10%,6rem)";
+  const padingUnits = 'max(10%,6rem)';
 
   //timelineSliders
   const dateSlider =
-    document.querySelector(".timelineSliders .dateSlider") ?? false;
+    document.querySelector('.timelineSliders .dateSlider') ?? false;
   const imgSlider =
-    document.querySelector(".timelineSliders .imgSlider") ?? false;
+    document.querySelector('.timelineSliders .imgSlider') ?? false;
   if (dateSlider && imgSlider) {
     const sliderOptions = {
       arrows: false,
       pagination: false,
       perPage: 4,
       updateOnMove: true,
-      focus: "center",
+      focus: 'center',
       padding: { right: padingUnits },
       breakpoints: {
         800: {
@@ -169,30 +171,30 @@ function initializeSliders() {
     const dateSliderr = new Splide(dateSlider, sliderOptions);
     const imgSliderr = new Splide(imgSlider, {
       ...sliderOptions,
-      gap: "2rem",
+      gap: '2rem',
     });
     imgSliderr.sync(dateSliderr);
     dateSliderr.mount();
     imgSliderr.mount();
 
-    imgSliderr.on("click", (Slide, e) => {
+    imgSliderr.on('click', (Slide, e) => {
       const index = Slide.index;
       imgSliderr.go(index);
       dateSliderr.go(index);
     });
   }
 
-  const newsSlider = document.querySelector(".newsSlider") ?? false;
-  const prevBtn = newsSlider.parentElement.querySelector("button[data-prev]");
-  const nextBtn = newsSlider.parentElement.querySelector("button[data-next]");
+  const newsSlider = document.querySelector('.newsSlider') ?? false;
+  const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
+  const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
   if (newsSlider) {
     const sliderOptions = {
       arrows: false,
       pagination: false,
       perPage: 3,
       updateOnMove: true,
-      focus: "center",
-      gap: "3rem",
+      focus: 'center',
+      gap: '3rem',
       start: 2,
       padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
@@ -207,23 +209,23 @@ function initializeSliders() {
 
     const slider = new Splide(newsSlider, sliderOptions);
     slider.mount();
-    prevBtn.addEventListener("click", () => {
-      slider.go("<");
+    prevBtn.addEventListener('click', () => {
+      slider.go('<');
     });
-    nextBtn.addEventListener("click", () => {
-      slider.go(">");
+    nextBtn.addEventListener('click', () => {
+      slider.go('>');
     });
   }
-  const bgImgSlider = document.querySelector(".bgImgSlider") ?? false;
+  const bgImgSlider = document.querySelector('.bgImgSlider') ?? false;
   if (bgImgSlider) {
     const sliderOptions = {
       arrows: false,
       pagination: false,
       perPage: 3,
       updateOnMove: true,
-      focus: "center",
-      gap: "1.5rem",
-      type: "loop",
+      focus: 'center',
+      gap: '1.5rem',
+      type: 'loop',
       autoplay: true,
       padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
@@ -239,29 +241,54 @@ function initializeSliders() {
     slider.mount();
   }
 
-  const logosSlider = new Splide(".logos-slider", {
-    type: "slide",
+  const logosSlider = new Splide('.logos-slider', {
+    type: 'slide',
     autoWidth: true,
-    gap: "1rem",
+    gap: '1rem',
     pagination: false,
     arrows: false,
   });
   const Components = logosSlider.Components;
-  logosSlider.on("resized", function () {
+  logosSlider.on('resized', function () {
     const isOverflow = Components.Layout.isOverflow();
     const list = Components.Elements.list;
     const lastSlide = Components.Slides.getAt(logosSlider.length - 1);
 
     if (lastSlide) {
       // Toggles `justify-content: center`
-      list.style.justifyContent = isOverflow ? "" : "center";
+      list.style.justifyContent = isOverflow ? '' : 'center';
 
       // Remove the last margin
       if (!isOverflow) {
-        lastSlide.slide.style.marginRight = "";
+        lastSlide.slide.style.marginRight = '';
       }
     }
   });
 
   logosSlider.mount();
+}
+
+function curtainOpener() {
+  const curtains = document.querySelectorAll('.curtain');
+  curtains.forEach((curtain) => {
+    // Get original position and dimensions
+    const originalTop = curtain.offsetTop;
+    const curtainHeight = curtain.offsetHeight;
+
+    // Calculate distance from bottom of document
+    const documentHeight = document.documentElement.scrollHeight;
+    const fromBottom = documentHeight - (originalTop + curtainHeight);
+
+    // Add margin to previous element to maintain document flow
+    curtain.previousElementSibling.style.marginBlockEnd = curtainHeight + 'px';
+
+    // Set position fixed with the bottom value
+    curtain.style.position = 'fixed';
+    curtain.style.zIndex = '-1';
+    curtain.style.bottom = fromBottom + 'px';
+    curtain.style.top = 'auto'; // Clear any top value
+    curtain.style.marginInline = 'auto'; // Clear any top value
+    curtain.style.insetInline = '0'; // Clear any top value
+    // curtain.style.translate = '-50%'; // Clear any top value
+  });
 }
