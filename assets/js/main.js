@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
   AlignBleedOut();
   InitializeSliders();
   HideBrokenImg();
-  CurtainOpener();
+  setTimeout(CurtainOpener, 600);
   window.addEventListener('resize', BannerBgEffect);
   window.addEventListener('resize', AlignBleedOut);
   window.addEventListener('resize', CurtainOpener);
@@ -280,25 +280,61 @@ function InitializeSliders() {
 
 function CurtainOpener() {
   const curtains = document.querySelectorAll('.curtain');
+
   curtains.forEach((curtain) => {
-    // Get original position and dimensions
-    const originalTop = curtain.offsetTop;
-    const curtainHeight = curtain.offsetHeight;
+    const images = curtain.querySelectorAll('img[loading="lazy"]');
 
-    // Calculate distance from bottom of document
-    const documentHeight = document.documentElement.scrollHeight;
-    const fromBottom = documentHeight - (originalTop + curtainHeight);
+    // If no images, process immediately
+    if (images.length === 0) {
+      positionCurtain(curtain);
+      return;
+    }
 
-    // Add margin to previous element to maintain document flow
-    curtain.previousElementSibling.style.marginBlockEnd = curtainHeight + 'px';
+    // Track loaded images
+    let loadedCount = 0;
 
-    // Set position fixed with the bottom value
-    curtain.style.position = 'fixed';
-    curtain.style.zIndex = '-1';
-    curtain.style.bottom = fromBottom + 'px';
-    curtain.style.top = 'auto'; // Clear any top value
-    curtain.style.marginInline = 'auto'; // Clear any top value
-    curtain.style.insetInline = '0'; // Clear any top value
-    // curtain.style.translate = '-50%'; // Clear any top value
+    // For each image
+    images.forEach((img) => {
+      // If already complete, increment counter
+      if (img.complete) {
+        loadedCount++;
+        // If all images are loaded, position the curtain
+        if (loadedCount === images.length) {
+          positionCurtain(curtain);
+        }
+      } else {
+        // Add load event for images still loading
+        img.addEventListener('load', () => {
+          loadedCount++;
+          // If all images are loaded, position the curtain
+          if (loadedCount === images.length) {
+            positionCurtain(curtain);
+          }
+        });
+      }
+    });
   });
+}
+
+// Helper function to handle the positioning logic
+function positionCurtain(curtain) {
+  // Get original position and dimensions
+  const originalTop = curtain.offsetTop;
+  const curtainHeight = curtain.offsetHeight;
+
+  // Calculate distance from bottom of document
+  const documentHeight = document.documentElement.scrollHeight;
+  const fromBottom = documentHeight - (originalTop + curtainHeight);
+
+  // Add margin to previous element to maintain document flow
+  if (curtain.previousElementSibling) {
+    curtain.previousElementSibling.style.marginBlockEnd = curtainHeight + 'px';
+  }
+
+  // Set position fixed with the bottom value
+  curtain.style.position = 'fixed';
+  curtain.style.bottom = fromBottom + 'px';
+  curtain.style.top = 'auto'; // Clear any top value
+  curtain.style.marginInline = 'auto'; // Clear any top value
+  curtain.style.insetInline = '0'; // Clear any top value
 }

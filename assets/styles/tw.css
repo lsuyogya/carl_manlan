@@ -36,6 +36,9 @@
   text-rendering: geometricPrecision;
 }
 @layer base {
+  main {
+    @apply z-1;
+  }
   main,
   section,
   .pin-spacer {
