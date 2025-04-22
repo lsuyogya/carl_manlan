@@ -361,3 +361,9 @@ main > section:first-child {
   display: grid;
   place-content: center;
 }
+
+.loaderOverlay.loaded {
+  z-index: -10;
+  visibility: 'hidden';
+  pointer-events: 'none';
+}

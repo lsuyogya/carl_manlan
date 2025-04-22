@@ -1,21 +1,41 @@
-window.addEventListener('load', () => {
-  RemoveLoader();
+import { animateByElements, animateScrubByElements } from './TimelineText.js';
+
+window.addEventListener('load', async () => {
+  await RemoveLoader();
   BannerBgEffect();
   AlignBleedOut();
   InitializeSliders();
   HideBrokenImg();
-  setTimeout(CurtainOpener, 600);
+  animateByElements();
+  animateScrubByElements();
+  CurtainOpener();
   window.addEventListener('resize', BannerBgEffect);
   window.addEventListener('resize', AlignBleedOut);
   window.addEventListener('resize', CurtainOpener);
 });
+
 function RemoveLoader() {
-  const loader = document.getElementById('loader');
-  if (!loader) return;
-  loader.querySelector('.loader').addEventListener('animationiteration', () => {
-    loader.style.zIndex = -10;
-    loader.style.visibility = 'hidden';
-    loader.style.pointerEvents = 'none';
+  return new Promise((resolve) => {
+    const loader = document.getElementById('loader');
+    if (!loader) return;
+
+    let loopCounter = 0;
+
+    const animationIterationHandler = () => {
+      if (loopCounter < 1) {
+        loopCounter++;
+        return;
+      }
+
+      // Apply styles and resolve the promise after a brief delay to allow the styles to be applied
+      loader.classList.add('loaded');
+      // Resolve the promise after styles are applied
+      resolve();
+    };
+
+    loader
+      .querySelector('.loader')
+      .addEventListener('animationiteration', animationIterationHandler);
   });
 }
 
@@ -32,7 +52,6 @@ function HideBrokenImg() {
 
 function BannerBgEffect() {
   const hexBgs = document.querySelectorAll('.hexBg');
-
   // Clear any existing content first to prevent duplication on resize
   hexBgs.forEach((hexBg) => {
     hexBg.innerHTML = '';
@@ -63,7 +82,7 @@ function BannerBgEffect() {
 
     if (hexBg.classList.contains('.bgEffect')) return;
     // Event handlers
-    parentElement = hexBg.parentElement;
+    const parentElement = hexBg.parentElement;
     parentElement.addEventListener('mouseleave', () => {
       resetGradient(hexBg);
     });

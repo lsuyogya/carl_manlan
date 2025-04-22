@@ -22,7 +22,7 @@
       href="./assets/styles/menu.css" />
     <link
       rel="stylesheet"
-      href="./assets/styles/lemis.min.css" />
+      href="./assets/styles/lenis.min.css" />
     <link
       rel="stylesheet"
       href="./assets/styles/main.css" />
@@ -40,6 +40,7 @@
       defer></script>
     <script
       src="./assets/js/main.js"
+      type="module"
       defer></script>
     <script
       src="./assets/js/menu.js"
@@ -55,9 +56,6 @@
       defer></script>
     <script
       src="./assets/js/gsapScrollTrigger.min.js"
-      defer></script>
-    <script
-      src="https://unpkg.com/split-type"
       defer></script>
     <script defer>
       document.addEventListener('DOMContentLoaded', () => {
@@ -80,7 +78,9 @@
         gsap.ticker.lagSmoothing(0);
       });
     </script>
-    <script src="./assets/js/homepageTimeline.js"></script>
+    <script
+      src="https://unpkg.com/split-type"
+      defer></script>
 
     <script defer>
       document.addEventListener('DOMContentLoaded', () => {
