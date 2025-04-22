@@ -326,8 +326,38 @@ main > section:first-child {
 .line {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-[data-by*='char'] .char,
-[data-by*='word'] .word {
-  /* transform: translateY(100px); */
+[data-scrub-by*='char'] .char,
+[data-scrub-by*='word'] .word {
+  transform: translateY(100px);
   transition: transform 0.5s;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  margin: auto;
+  height: 50px;
+  aspect-ratio: 2;
+  border: 10px solid #000;
+  box-sizing: border-box;
+  background: radial-gradient(farthest-side, #fff 98%, #0000) left/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) left/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) center/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) right/20px 20px, #000;
+  background-repeat: no-repeat;
+  filter: blur(4px) contrast(10);
+  animation: l14 1s infinite;
+}
+@keyframes l14 {
+  100% {
+    background-position: right, left, center, right;
+  }
+}
+
+.loaderOverlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: var(--color-dark);
+  display: grid;
+  place-content: center;
 }

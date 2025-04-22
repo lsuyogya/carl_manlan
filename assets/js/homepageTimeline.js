@@ -1,48 +1,85 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const txt = new SplitType('[data-by]', { types: 'lines, words, chars' });
-
-  const lineParents = Array.from(document.querySelectorAll('.line')).map(
-    (line) => line.parentElement
-  );
-  const uniqueLineParents = Array.from(new Set(lineParents));
-  console.log(uniqueLineParents);
-
-  uniqueLineParents.forEach((parent) => {
-    const animateBy = parent.getAttribute('data-by') ?? '.char';
-    const elements = parent.querySelectorAll(animateBy);
-
-    // Find the section that contains this parent
-    // Adjust this selector based on your actual HTML structure
-    const section = parent.closest('section') || parent;
-
-    // Set initial state - characters start hidden
-    gsap.set(elements, {
-      y: 50,
-      opacity: 0,
-    });
-
-    const needsPin = section.closest('.pin-spacer') ? false : true;
-    // Create a separate timeline for each parent
-    const parentTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section, // Pin the entire section
-        start: 'top top', // Start when section reaches top of viewport
-        end: '+=100%', // Pin for the duration of 1 full viewport height
-        pin: needsPin, // Pin the section
-        pinSpacing: 'padding', // Creates space in the document for the pinned element
-        scrub: 0.5, // Smooth scrubbing
-        anticipatePin: 1, // Helps prevent jarring pin start
-        markers: false, // Set to true for debugging
-      },
-    });
-
-    // Add animation that will be tied to scroll progress
-    parentTl.to(elements, {
-      y: 0,
-      opacity: 1,
-      stagger: 0.1,
-      ease: 'power1.out',
-      duration: 0.5,
-    });
+window.addEventListener('load', function () {
+  // Initialize SplitType for both sets of elements
+  const byTxt = new SplitType('[data-by]', { types: 'lines, words, chars' });
+  const scrubByTxt = new SplitType('[data-scrub-by]', {
+    types: 'lines, words, chars',
   });
+
+  // Function to handle animations for elements with [data-by] attribute
+  const animateByElements = () => {
+    const lineParents = Array.from(
+      document.querySelectorAll('[data-by] .line')
+    ).map((line) => line.parentElement);
+    const uniqueLineParents = Array.from(new Set(lineParents));
+    console.log('animateByElements parents:', uniqueLineParents);
+
+    uniqueLineParents.forEach((parent) => {
+      const parentTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: parent,
+          start: 'top 90%',
+        },
+      });
+      const animateBy = parent.getAttribute('data-by') ?? '.char';
+      gsap.set(parent.querySelectorAll(animateBy), {
+        y: 50,
+        opacity: 0,
+      });
+      console.log('animateByElements animateBy:', animateBy);
+      parentTl.to(parent.querySelectorAll(animateBy), {
+        y: 0,
+        opacity: 1,
+        stagger: 0.05,
+        delay: 0.2,
+        duration: 1,
+      });
+    });
+  };
+
+  // Function to handle animations for elements with [data-scrub-by] attribute
+  const animateScrubByElements = () => {
+    const lineParents = Array.from(
+      document.querySelectorAll('[data-scrub-by] .line')
+    ).map((line) => line.parentElement);
+    const uniqueLineParents = Array.from(new Set(lineParents));
+    console.log('animateScrubByElements parents:', uniqueLineParents);
+
+    uniqueLineParents.forEach((parent) => {
+      const animateBy = parent.getAttribute('data-scrub-by') ?? '.char';
+      const elements = parent.querySelectorAll(animateBy);
+      const section = parent.closest('section') || parent;
+      const needsPin = section.closest('.pin-spacer') ? false : true;
+
+      gsap.set(elements, {
+        y: 50,
+        opacity: 0,
+      });
+
+      const parentTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: parent,
+          start: 'center bottom',
+          end: 'center 40%',
+          pin: false,
+          pinSpacing: true,
+          scrub: 0.5,
+          anticipatePin: 1,
+          markers: false,
+        },
+      });
+
+      parentTl.to(elements, {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        ease: 'power1.out',
+        duration: 2,
+      });
+      parentTl.to(elements, { duration: 2 });
+    });
+  };
+
+  // Call the animation functions
+  animateByElements();
+  animateScrubByElements();
 });

@@ -1,15 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
+  RemoveLoader();
   BannerBgEffect();
-  alignBleedOut();
-  initializeSliders();
-  hideBrokenImg();
-  curtainOpener();
+  AlignBleedOut();
+  InitializeSliders();
+  HideBrokenImg();
+  CurtainOpener();
   window.addEventListener('resize', BannerBgEffect);
-  window.addEventListener('resize', alignBleedOut);
-  window.addEventListener('resize', curtainOpener);
+  window.addEventListener('resize', AlignBleedOut);
+  window.addEventListener('resize', CurtainOpener);
 });
+function RemoveLoader() {
+  const loader = document.getElementById('loader');
+  if (!loader) return;
+  loader.querySelector('.loader').addEventListener('animationiteration', () => {
+    loader.style.zIndex = -10;
+    loader.style.visibility = 'hidden';
+    loader.style.pointerEvents = 'none';
+  });
+}
 
-function hideBrokenImg() {
+function HideBrokenImg() {
   document.querySelectorAll('img').forEach(function (img) {
     img.onerror = function () {
       this.style.display = 'none';
@@ -128,7 +138,7 @@ function updateGradientPosition(element) {
   }
 }
 
-function alignBleedOut() {
+function AlignBleedOut() {
   const bleedOutRightWrapper =
     document.querySelector('.bleedOutRight') ?? false;
   if (!bleedOutRightWrapper) return;
@@ -143,7 +153,7 @@ function alignBleedOut() {
     computedStyles.paddingInlineStart;
 }
 
-function initializeSliders() {
+function InitializeSliders() {
   const padingUnits = 'max(10%,6rem)';
 
   //timelineSliders
@@ -268,7 +278,7 @@ function initializeSliders() {
   logosSlider.mount();
 }
 
-function curtainOpener() {
+function CurtainOpener() {
   const curtains = document.querySelectorAll('.curtain');
   curtains.forEach((curtain) => {
     // Get original position and dimensions

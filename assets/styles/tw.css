@@ -36,6 +36,7 @@
   text-rendering: geometricPrecision;
 }
 @layer base {
+  main,
   section,
   .pin-spacer {
     @apply bg-dark;
