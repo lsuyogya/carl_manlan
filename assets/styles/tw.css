@@ -20,6 +20,13 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+
 @theme {
   --color-dark: #000;
   --color-light: #fff;
@@ -28,6 +35,7 @@
   --color-gray: #ababab;
 
   --font-oswald: Oswald;
+  --font-poppins: Poppins;
   --font-over-the-rainbow: 'OvertheRainbow';
 }
 

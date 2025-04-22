@@ -2,14 +2,14 @@ import { animateByElements, animateScrubByElements } from './TimelineText.js';
 
 window.addEventListener('load', async () => {
   await RemoveLoader();
-  BannerBgEffect();
+  BannerBgEffect.init();
   AlignBleedOut();
   InitializeSliders();
   HideBrokenImg();
   animateByElements();
   animateScrubByElements();
   CurtainOpener();
-  window.addEventListener('resize', BannerBgEffect);
+  window.addEventListener('resize', BannerBgEffect.init);
   window.addEventListener('resize', AlignBleedOut);
   window.addEventListener('resize', CurtainOpener);
 });
@@ -50,21 +50,35 @@ function HideBrokenImg() {
   });
 }
 
-function BannerBgEffect() {
-  const hexBgs = document.querySelectorAll('.hexBg');
-  // Clear any existing content first to prevent duplication on resize
-  hexBgs.forEach((hexBg) => {
-    hexBg.innerHTML = '';
+// Optimize by using shared variables and debouncing resize events
+const BannerBgEffect = (() => {
+  // Shared variables
+  let resizeTimer;
+  const hexBgElements = new Map(); // Track elements and their data
+  const easingValue = 0.08;
 
-    const boxDimension = 130;
+  // Create and cache the hex grid only when needed
+  function createHexGrid(hexBg) {
+    // Get element data
+    const boxDimension = parseInt(
+      hexBg.getAttribute('data-box-dimension') || '130',
+      10
+    );
     const rect = hexBg.getBoundingClientRect();
     const height = rect.height;
     const width = rect.width;
 
+    // Clear existing content
+    hexBg.innerHTML = '';
+
+    // Calculate grid dimensions
     const rows = Math.ceil(height / boxDimension);
     const columns = Math.ceil(width / boxDimension);
 
-    // Create grid
+    // Use document fragment for better performance
+    const fragment = document.createDocumentFragment();
+
+    // Create grid with fewer DOM operations
     for (let i = 0; i < rows; i++) {
       const row = document.createElement('div');
       row.classList.add('row');
@@ -75,87 +89,176 @@ function BannerBgEffect() {
         row.appendChild(column);
       }
 
-      hexBg.appendChild(row);
+      fragment.appendChild(row);
     }
-    // Set initial gradient position (center of element)
+
+    // Append all elements at once
+    hexBg.appendChild(fragment);
+
+    // Store element data
+    if (!hexBgElements.has(hexBg)) {
+      const elementData = {
+        currentX: 0,
+        currentY: 0,
+        targetX: 0,
+        targetY: 0,
+        isHovering: false,
+        animationFrameId: null,
+        isBgEffect: hexBg.classList.contains('bgEffect'),
+      };
+      hexBgElements.set(hexBg, elementData);
+    }
+
+    // Reset gradient position
     resetGradient(hexBg);
+  }
 
-    if (hexBg.classList.contains('.bgEffect')) return;
-    // Event handlers
-    const parentElement = hexBg.parentElement;
-    parentElement.addEventListener('mouseleave', () => {
-      resetGradient(hexBg);
+  // Optimize animation frame handling
+  function updateGradientPositions() {
+    hexBgElements.forEach((data, element) => {
+      if (!data.isHovering && !isMoving(data)) {
+        data.animationFrameId = null;
+        return;
+      }
+
+      // Calculate new position with easing
+      data.currentX += (data.targetX - data.currentX) * easingValue;
+      data.currentY += (data.targetY - data.currentY) * easingValue;
+
+      // Batch style updates with transform instead of CSS variables when possible
+      element.style.setProperty('--x', `${data.currentX}px`);
+      element.style.setProperty('--y', `${data.currentY}px`);
+
+      // Continue animation if needed
+      if (data.isHovering || isMoving(data)) {
+        data.animationFrameId = requestAnimationFrame(() =>
+          updateGradientPositions()
+        );
+      } else {
+        data.animationFrameId = null;
+      }
+    });
+  }
+
+  function isMoving(data) {
+    const distanceX = Math.abs(data.currentX - data.targetX);
+    const distanceY = Math.abs(data.currentY - data.targetY);
+    return distanceX > 0.5 || distanceY > 0.5;
+  }
+
+  function moveGradient(event, element) {
+    const data = hexBgElements.get(element);
+    if (!data) return;
+
+    // Calculate position relative to the element
+    const rect = element.getBoundingClientRect();
+    data.targetX = event.clientX - rect.left;
+    data.targetY = event.clientY - rect.top;
+    data.isHovering = true;
+
+    // Start animation loop if not already running
+    if (!data.animationFrameId) {
+      data.animationFrameId = requestAnimationFrame(() =>
+        updateGradientPositions()
+      );
+    }
+  }
+
+  function resetGradient(element) {
+    const data = hexBgElements.get(element);
+    if (!data) return;
+
+    const rect = element.getBoundingClientRect();
+    const gradX = parseFloat(element.getAttribute('data-gradX') || '0.5');
+    const gradY = parseFloat(element.getAttribute('data-gradY') || '0.5');
+
+    // Set target to specified position
+    data.targetX = rect.width * gradX;
+    data.targetY = rect.height * gradY;
+    data.isHovering = false;
+
+    // Set size once instead of repeatedly
+    const size =
+      element.getAttribute('data-gradSize') || `${rect.height * 1.2}px`;
+    element.style.setProperty('--size', size);
+
+    // Ensure animation continues until we reach the target
+    if (!data.animationFrameId) {
+      data.animationFrameId = requestAnimationFrame(() =>
+        updateGradientPositions()
+      );
+    }
+  }
+
+  // Setup and init function
+  function init() {
+    // Remove any existing listeners from previous inits
+    cleanup();
+
+    // Find and initialize all hex backgrounds
+    const hexBgs = document.querySelectorAll('.hexBg');
+
+    hexBgs.forEach((hexBg) => {
+      createHexGrid(hexBg);
+
+      const data = hexBgElements.get(hexBg);
+      if (!data || !data.isBgEffect) return;
+
+      // Use event delegation with passive option for better performance
+      const parentElement = hexBg.parentElement;
+      parentElement.addEventListener('mouseleave', () => resetGradient(hexBg), {
+        passive: true,
+      });
+      parentElement.addEventListener(
+        'mousemove',
+        (e) => moveGradient(e, hexBg),
+        { passive: true }
+      );
     });
 
-    parentElement.addEventListener('mousemove', (e) => {
-      moveGradient(e, hexBg);
+    // Handle resize with debounce
+    window.addEventListener('resize', debounceResize);
+  }
+
+  // Clean up function to remove event listeners
+  function cleanup() {
+    // Remove existing event listeners to prevent duplicates
+    hexBgElements.forEach((data, element) => {
+      const parentElement = element.parentElement;
+      if (parentElement) {
+        parentElement.removeEventListener('mouseleave', () =>
+          resetGradient(element)
+        );
+        parentElement.removeEventListener('mousemove', (e) =>
+          moveGradient(e, element)
+        );
+      }
+
+      // Cancel any pending animations
+      if (data.animationFrameId) {
+        cancelAnimationFrame(data.animationFrameId);
+        data.animationFrameId = null;
+      }
     });
-  });
-}
 
-// Add these variables at the top of your script or in an appropriate scope
-let currentX = 0;
-let currentY = 0;
-let targetX = 0;
-let targetY = 0;
-let isHovering = false;
-let animationFrameId = null;
-const easing = 0.08; // Adjust for smoother/slower or faster/less smooth
-
-function moveGradient(event, element) {
-  // Calculate position relative to the element
-  const rect = element.getBoundingClientRect();
-  targetX = event.clientX - rect.left;
-  targetY = event.clientY - rect.top;
-  isHovering = true;
-
-  // Start animation loop if not already running
-  if (!animationFrameId) {
-    animationFrameId = requestAnimationFrame(() =>
-      updateGradientPosition(element)
-    );
+    // Clear element cache
+    hexBgElements.clear();
   }
-}
 
-function resetGradient(element) {
-  const rect = element.getBoundingClientRect();
-  // Set target to right edge when not hovering
-  targetX = rect.width * element.getAttribute('data-gradX');
-  targetY = rect.height * element.getAttribute('data-gradY');
-  isHovering = false;
-
-  element.style.setProperty('--size', `${rect.height * 1.2}px`);
-  // Ensure animation continues until we reach the target
-  if (!animationFrameId) {
-    animationFrameId = requestAnimationFrame(() =>
-      updateGradientPosition(element)
-    );
+  // Debounce resize handler to avoid excessive recalculations
+  function debounceResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      init();
+    }, 250); // Wait 250ms after resize stops
   }
-}
 
-function updateGradientPosition(element) {
-  // Calculate new position with easing (lerp)
-
-  currentX = currentX + (targetX - currentX) * easing;
-  currentY = currentY + (targetY - currentY) * easing;
-
-  // Apply the new position
-  element.style.setProperty('--x', `${currentX}px`);
-  element.style.setProperty('--y', `${currentY}px`);
-
-  // Continue animation if still hovering or if we haven't reached the target
-  const distanceX = Math.abs(currentX - targetX);
-  const distanceY = Math.abs(currentY - targetY);
-  const isMoving = distanceX > 0.5 || distanceY > 0.5;
-
-  if (isHovering || isMoving) {
-    animationFrameId = requestAnimationFrame(() =>
-      updateGradientPosition(element)
-    );
-  } else {
-    animationFrameId = null;
-  }
-}
+  // Return public API
+  return {
+    init,
+    cleanup,
+  };
+})();
 
 function AlignBleedOut() {
   const bleedOutRightWrapper =
@@ -214,9 +317,9 @@ function InitializeSliders() {
   }
 
   const newsSlider = document.querySelector('.newsSlider') ?? false;
-  const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
-  const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
   if (newsSlider) {
+    const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
+    const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
     const sliderOptions = {
       arrows: false,
       pagination: false,
@@ -269,32 +372,34 @@ function InitializeSliders() {
     const slider = new Splide(bgImgSlider, sliderOptions);
     slider.mount();
   }
+  const logosSlider = document.querySelector('.logos-slider');
+  if (logosSlider) {
+    const logosSlider = new Splide(logosSlider, {
+      type: 'slide',
+      autoWidth: true,
+      gap: '1rem',
+      pagination: false,
+      arrows: false,
+    });
+    const Components = logosSlider.Components;
+    logosSlider.on('resized', function () {
+      const isOverflow = Components.Layout.isOverflow();
+      const list = Components.Elements.list;
+      const lastSlide = Components.Slides.getAt(logosSlider.length - 1);
 
-  const logosSlider = new Splide('.logos-slider', {
-    type: 'slide',
-    autoWidth: true,
-    gap: '1rem',
-    pagination: false,
-    arrows: false,
-  });
-  const Components = logosSlider.Components;
-  logosSlider.on('resized', function () {
-    const isOverflow = Components.Layout.isOverflow();
-    const list = Components.Elements.list;
-    const lastSlide = Components.Slides.getAt(logosSlider.length - 1);
+      if (lastSlide) {
+        // Toggles `justify-content: center`
+        list.style.justifyContent = isOverflow ? '' : 'center';
 
-    if (lastSlide) {
-      // Toggles `justify-content: center`
-      list.style.justifyContent = isOverflow ? '' : 'center';
-
-      // Remove the last margin
-      if (!isOverflow) {
-        lastSlide.slide.style.marginRight = '';
+        // Remove the last margin
+        if (!isOverflow) {
+          lastSlide.slide.style.marginRight = '';
+        }
       }
-    }
-  });
+    });
 
-  logosSlider.mount();
+    logosSlider.mount();
+  }
 }
 
 function CurtainOpener() {
