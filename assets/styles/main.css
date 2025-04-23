@@ -8,13 +8,13 @@
     rgba(160, 211, 204, 0.6) 5%,
     transparent 60%
   );
-  @media (max-width: 1024px) {
+  /* @media (max-width: 1024px) {
     background-image: radial-gradient(
       circle farthest-side at 80% 100%,
       rgba(160, 211, 204, 0.6) 0%,
       transparent 60%
     );
-  }
+  } */
   /* transition: --x 100s ease-out, --y 100s ease-out; */
 }
 

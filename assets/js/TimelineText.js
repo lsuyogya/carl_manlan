@@ -58,7 +58,7 @@ export const AnimateScrubByElements = () => {
         end: 'center 40%',
         pin: false,
         pinSpacing: true,
-        scrub: 0.5,
+        scrub: true,
         anticipatePin: 1,
         markers: false,
       },
