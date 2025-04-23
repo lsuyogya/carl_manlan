@@ -1,4 +1,4 @@
-export const animateByElements = () => {
+export const AnimateByElements = () => {
   const byTxt = new SplitType('[data-by]', { types: 'lines, words, chars' });
   const lineParents = Array.from(
     document.querySelectorAll('[data-by] .line')
@@ -30,7 +30,7 @@ export const animateByElements = () => {
 };
 
 // Function to handle animations for elements with [data-scrub-by] attribute
-export const animateScrubByElements = () => {
+export const AnimateScrubByElements = () => {
   const scrubByTxt = new SplitType('[data-scrub-by]', {
     types: 'lines, words, chars',
   });

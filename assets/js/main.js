@@ -1,4 +1,4 @@
-import { animateByElements, animateScrubByElements } from './TimelineText.js';
+import { AnimateByElements, AnimateScrubByElements } from './TimelineText.js';
 
 window.addEventListener('load', async () => {
   await RemoveLoader();
@@ -6,9 +6,10 @@ window.addEventListener('load', async () => {
   AlignBleedOut();
   InitializeSliders();
   HideBrokenImg();
-  animateByElements();
-  animateScrubByElements();
+  AnimateByElements();
+  AnimateScrubByElements();
   CurtainOpener();
+  GsapImgParallax();
   window.addEventListener('resize', BannerBgEffect.init);
   window.addEventListener('resize', AlignBleedOut);
   window.addEventListener('resize', CurtainOpener);
@@ -50,7 +51,6 @@ function HideBrokenImg() {
   });
 }
 
-// Optimize by using shared variables and debouncing resize events
 const BannerBgEffect = (() => {
   // Shared variables
   let resizeTimer;
@@ -374,18 +374,18 @@ function InitializeSliders() {
   }
   const logosSlider = document.querySelector('.logos-slider');
   if (logosSlider) {
-    const logosSlider = new Splide(logosSlider, {
+    const logosSliderr = new Splide(logosSlider, {
       type: 'slide',
       autoWidth: true,
       gap: '1rem',
       pagination: false,
       arrows: false,
     });
-    const Components = logosSlider.Components;
-    logosSlider.on('resized', function () {
+    const Components = logosSliderr.Components;
+    logosSliderr.on('resized', function () {
       const isOverflow = Components.Layout.isOverflow();
       const list = Components.Elements.list;
-      const lastSlide = Components.Slides.getAt(logosSlider.length - 1);
+      const lastSlide = Components.Slides.getAt(logosSliderr.length - 1);
 
       if (lastSlide) {
         // Toggles `justify-content: center`
@@ -398,7 +398,7 @@ function InitializeSliders() {
       }
     });
 
-    logosSlider.mount();
+    logosSliderr.mount();
   }
 }
 
@@ -447,9 +447,9 @@ function positionCurtain(curtain) {
   const curtainHeight = curtain.offsetHeight;
 
   // Calculate distance from bottom of document
-  const documentHeight = document.documentElement.scrollHeight;
+  const documentHeight =
+    document.documentElement.getBoundingClientRect().height;
   const fromBottom = documentHeight - (originalTop + curtainHeight);
-
   // Add margin to previous element to maintain document flow
   if (curtain.previousElementSibling) {
     curtain.previousElementSibling.style.marginBlockEnd = curtainHeight + 'px';
@@ -461,4 +461,24 @@ function positionCurtain(curtain) {
   curtain.style.top = 'auto'; // Clear any top value
   curtain.style.marginInline = 'auto'; // Clear any top value
   curtain.style.insetInline = '0'; // Clear any top value
+}
+
+function GsapImgParallax() {
+  gsap.utils.toArray('.parallax-image-container').forEach(function (container) {
+    let image = container.querySelector('img');
+
+    gsap.to(image, {
+      y: () => image.offsetHeight * 1.2 - container.offsetHeight,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: container,
+        scrub: true,
+        pin: false,
+        start: 'top bottom', // when container enters viewport
+        end: 'bottom top', // when it leaves
+        markers: false,
+        invalidateOnRefresh: true,
+      },
+    });
+  });
 }
