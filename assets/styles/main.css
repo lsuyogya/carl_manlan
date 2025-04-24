@@ -409,3 +409,66 @@ main > section:first-child {
   pointer-events: 'none';
   opacity: 0;
 }
+
+.timelineBg::after {
+  background: linear-gradient(to left, transparent, var(--color-dark)),
+    linear-gradient(
+      to bottom,
+      var(--color-dark),
+      transparent,
+      var(--color-dark)
+    );
+}
+.timelineBg::before {
+  background: linear-gradient(to right, transparent, var(--color-dark)),
+    linear-gradient(
+      to bottom,
+      var(--color-dark),
+      transparent,
+      var(--color-dark)
+    );
+}
+
+.verticalTimeline .timlineItem:nth-child(even) {
+  .imgWrapper {
+    order: 1;
+  }
+  .txtWrapper {
+    order: -1;
+  }
+}
+.verticalTimeline .separator {
+  position: relative;
+  .year::after {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 0;
+    margin-inline: auto;
+    height: calc(45% - 2rem);
+    width: 2px;
+    background-color: white;
+    content: '';
+  }
+  .year::before {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    margin-inline: auto;
+    height: calc(45% - 2.5rem);
+    width: 2px;
+    background-color: white;
+    content: '';
+  }
+}
+.verticalTimeline .timlineItem {
+  height: 100%;
+  min-height: 400px;
+  grid-template-rows: 1fr;
+}
+.verticalTimeline .timlineItem .imgWrapper {
+  align-items: center;
+  align-content: center;
+}
+.verticalTimeline .timlineItem > * {
+  height: 1fr;
+}
