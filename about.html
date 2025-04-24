@@ -43,9 +43,6 @@
       type="module"
       defer></script>
     <script
-      src="./assets/js/menu.js"
-      defer></script>
-    <script
       src="./assets/js/splide.min.js"
       defer></script>
     <script
@@ -57,36 +54,9 @@
     <script
       src="./assets/js/gsapScrollTrigger.min.js"
       defer></script>
-    <script defer>
-      document.addEventListener('DOMContentLoaded', () => {
-        const lenis = new Lenis({
-          lerp: 0.08,
-          smoothWheel: true,
-        });
-        window.lenis = lenis; // Expose Lenis instance globally for debugging
-        // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-        lenis.on('scroll', ScrollTrigger.update);
-
-        gsap.registerPlugin(ScrollTrigger);
-        // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-        // This ensures Lenis's smooth scroll animation updates on each GSAP tick
-        gsap.ticker.add((time) => {
-          lenis.raf(time * 1000); // Convert time from seconds to milliseconds
-        });
-
-        // Disable lag smoothing in GSAP to prevent any delay in scroll animations
-        gsap.ticker.lagSmoothing(0);
-      });
-    </script>
     <script
       src="https://unpkg.com/split-type"
       defer></script>
-
-    <script defer>
-      document.addEventListener('DOMContentLoaded', () => {
-        feather.replace();
-      });
-    </script>
     <title>About</title>
   </head>
 
@@ -265,7 +235,7 @@
           data-gradSize="farthest-corner"
           data-box-dimension="180"></div>
         <div
-          class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1">
+          class="content container grid max-lg:pb-6 lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1">
           <div
             class="text-wrapper lg:py-8 uppercase text-white items-end content-center">
             <div data-by=".char">
@@ -375,6 +345,11 @@
           </div>
         </div>
       </section>
+      <section class="py-20 text-3xl uppercase text-light font-medium">
+        <h1 class="container">
+          Carl's Life in <span class="text-primary">60 Seconds</span>
+        </h1>
+      </section>
       <!-- vertical timeline -->
       <section class="relative w-full">
         <!-- <div
@@ -382,40 +357,51 @@
         <div
           class="timelineBg z-0 bg-secondary absolute inset-0 after:absolute after:inset-x-0 after:top-0 after:bottom-1/2 before:absolute before:inset-x-0 before:bottom-0 before:top-1/2"></div>
         <div
-          class="hexBg absolute inset-0"
-          data-gradSize="0"
+          class="hexBg bgEffect absolute inset-0"
+          data-gradSize="100"
           data-box-dimension="180"></div>
         <div
           class="verticalTimeline grid auto-rows-[1fr] text-light text-center z-1 relative">
           <div
-            class="timlineItem grid grid-cols-2 lg:grid-cols-3 gap-4 place-content-center relative z-1 container">
+            class="timlineItem container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
               <img
                 src="./assets/images/timelineImg1.png"
                 alt="" />
             </div>
             <div class="separator content-center">
-              <div class="year md:text-5xl lg:text-8xl text-primary font-bold">
+              <div
+                class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
+                data-scrub-by=".char">
                 1980
               </div>
             </div>
-            <div class="txtWrapper grid content-center font-medium uppercase">
-              <h2 class="text-3xl">Born and raised in Côte d’Ivoire</h2>
+            <div
+              class="txtWrapper grid gap-4 content-center font-medium uppercase">
+              <h2
+                class="text-3xl"
+                data-scrub-by=".word">
+                Born and raised in Côte d’Ivoire
+              </h2>
             </div>
           </div>
           <div
-            class="timlineItem container grid grid-cols-2 lg:grid-cols-3 gap-4 place-content-center relative z-1">
+            class="timlineItem container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
               <img
                 src="./assets/images/timelineImg2.png"
                 alt="" />
             </div>
             <div class="separator content-center">
-              <div class="year md:text-5xl lg:text-8xl text-primary font-bold">
+              <div
+                class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
+                data-scrub-by=".char">
                 1998
               </div>
             </div>
-            <div class="txtWrapper grid content-center font-medium uppercase">
+            <div
+              class="txtWrapper grid gap-4 content-center font-medium uppercase"
+              data-scrub-by=".word">
               <h2 class="text-3xl">
                 Attended the University of Cape Town, South Africa
               </h2>
@@ -424,18 +410,22 @@
           </div>
 
           <div
-            class="timlineItem container grid grid-cols-2 lg:grid-cols-3 gap-4 place-content-center relative z-1">
+            class="timlineItem container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
               <img
                 src="./assets/images/timelineImg1.png"
                 alt="" />
             </div>
             <div class="separator content-center">
-              <div class="year md:text-5xl lg:text-8xl text-primary font-bold">
+              <div
+                class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
+                data-scrub-by=".char">
                 2002
               </div>
             </div>
-            <div class="txtWrapper grid content-center font-medium uppercase">
+            <div
+              class="txtWrapper grid gap-4 content-center font-medium uppercase"
+              data-scrub-by=".word">
               <h2 class="text-3xl">
                 Graduated from Harvard University, Kennedy School of Government
               </h2>
@@ -444,18 +434,22 @@
           </div>
 
           <div
-            class="timlineItem grid grid-cols-2 lg:grid-cols-3 gap-4 place-content-center relative z-1 container">
+            class="timlineItem container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
               <img
                 src="./assets/images/timelineImg1.png"
                 alt="" />
             </div>
             <div class="separator content-center">
-              <div class="year md:text-5xl lg:text-8xl text-primary font-bold">
+              <div
+                class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
+                data-scrub-by=".char">
                 2005
               </div>
             </div>
-            <div class="txtWrapper grid content-center font-medium uppercase">
+            <div
+              class="txtWrapper grid gap-4 content-center font-medium uppercase"
+              data-scrub-by=".word">
               <h2 class="text-3xl">Married (Ellada)</h2>
             </div>
           </div>

@@ -1,8 +1,22 @@
 import { AnimateByElements, AnimateScrubByElements } from './TimelineText.js';
+import {
+  setHeaderHeight,
+  setScrollPos,
+  stickyHeader,
+  handleSubmenuAnimation,
+} from './menu.js';
 
 window.addEventListener('load', async () => {
+  featherInit();
+  lenisInit();
   await RemoveLoader();
   BannerBgEffect.init();
+  //menu
+  setHeaderHeight();
+  setScrollPos();
+  stickyHeader();
+  handleSubmenuAnimation();
+  //menu-end
   AlignBleedOut();
   InitializeSliders();
   HideBrokenImg();
@@ -10,10 +24,34 @@ window.addEventListener('load', async () => {
   AnimateScrubByElements();
   CurtainOpener();
   GsapImgParallax();
+  verticalTimelineInit();
+  window.addEventListener('resize', setHeaderHeight);
   window.addEventListener('resize', BannerBgEffect.init);
   window.addEventListener('resize', AlignBleedOut);
   window.addEventListener('resize', CurtainOpener);
 });
+
+function featherInit() {
+  if (feather) feather.replace();
+}
+
+function lenisInit() {
+  if (Lenis && gsap) {
+    const lenis = new Lenis({
+      lerp: 0.08,
+      smoothWheel: true,
+    });
+    window.lenis = lenis; // Expose Lenis instance globally for debugging
+    // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+    gsap.registerPlugin(ScrollTrigger);
+  }
+}
 
 function RemoveLoader() {
   return new Promise((resolve) => {
@@ -406,7 +444,7 @@ function CurtainOpener() {
   const curtains = document.querySelectorAll('.curtain');
 
   curtains.forEach((curtain) => {
-    const images = curtain.querySelectorAll('img[loading="lazy"]');
+    const images = curtain.querySelectorAll('img');
 
     // If no images, process immediately
     if (images.length === 0) {
@@ -442,6 +480,9 @@ function CurtainOpener() {
 
 // Helper function to handle the positioning logic
 function positionCurtain(curtain) {
+  curtain.style.position = 'initial';
+  curtain.style.bottom = 'unset';
+  curtain.style.top = 'unset'; // Clear any top value
   // Get original position and dimensions
   const originalTop = curtain.offsetTop;
   const curtainHeight = curtain.offsetHeight;
@@ -456,6 +497,7 @@ function positionCurtain(curtain) {
   }
 
   // Set position fixed with the bottom value
+  curtain.style.position = 'fixed';
   curtain.style.position = 'fixed';
   curtain.style.bottom = fromBottom + 'px';
   curtain.style.top = 'auto'; // Clear any top value
@@ -480,5 +522,16 @@ function GsapImgParallax() {
         invalidateOnRefresh: true,
       },
     });
+  });
+}
+
+async function verticalTimelineInit() {
+  const verticalTimelineElement =
+    document.querySelector('.verticalTimeline') ?? false;
+  if (!verticalTimelineElement) return;
+  const { verticalTimeline } = await import('./utilFunctions.js');
+  verticalTimeline({ verticalTimeline: verticalTimelineElement });
+  window.addEventListener('resize', () => {
+    verticalTimeline({ verticalTimeline: verticalTimelineElement });
   });
 }

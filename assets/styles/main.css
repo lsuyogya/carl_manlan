@@ -410,33 +410,52 @@ main > section:first-child {
   opacity: 0;
 }
 
+.timelineBg {
+  --transparent-color: rgba(0, 0, 0, 0.2);
+  filter: blur(1px);
+}
 .timelineBg::after {
-  background: linear-gradient(to left, transparent, var(--color-dark)),
+  background: linear-gradient(
+      to left,
+      var(--transparent-color),
+      var(--color-dark)
+    ),
     linear-gradient(
       to bottom,
       var(--color-dark),
-      transparent,
+      var(--color-dark) 5%,
+      var(--transparent-color),
+      var(--color-dark) 95%,
       var(--color-dark)
     );
 }
 .timelineBg::before {
-  background: linear-gradient(to right, transparent, var(--color-dark)),
+  background: linear-gradient(
+      to right,
+      var(--transparent-color),
+      var(--color-dark)
+    ),
     linear-gradient(
       to bottom,
       var(--color-dark),
-      transparent,
+      var(--color-dark) 5%,
+      var(--transparent-color),
+      var(--color-dark) 95%,
       var(--color-dark)
     );
 }
 
-.verticalTimeline .timlineItem:nth-child(even) {
-  .imgWrapper {
-    order: 1;
-  }
-  .txtWrapper {
-    order: -1;
+@media (width >= 64rem) {
+  .verticalTimeline .timlineItem:nth-child(even) {
+    .imgWrapper {
+      order: 1;
+    }
+    .txtWrapper {
+      order: -1;
+    }
   }
 }
+
 .verticalTimeline .separator {
   position: relative;
   .year::after {
@@ -469,6 +488,14 @@ main > section:first-child {
   align-items: center;
   align-content: center;
 }
-.verticalTimeline .timlineItem > * {
-  height: 1fr;
+
+@media (width <= 64rem) {
+  .verticalTimeline .timlineItem .txtWrapper {
+    padding-block: 2rem;
+  }
+
+  .verticalTimeline .timlineItem .imgWrapper img {
+    width: 100%;
+    height: auto;
+  }
 }
