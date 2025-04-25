@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="./assets/fonts/Oswald-VariableFont_wght.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin />
+    <link
+      rel="preload"
+      href="./assets/fonts/OvertheRainbow-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/menu.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/lenis.min.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/output.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/splide.min.css" />
+    <script
+      src="./assets/js/feather.min.js"
+      defer></script>
+    <script
+      src="./assets/js/seedrandom.min.js"
+      defer></script>
+    <script
+      src="./assets/js/main.js"
+      type="module"
+      defer></script>
+    <script
+      src="./assets/js/splide.min.js"
+      defer></script>
+    <script
+      src="./assets/js/lenis.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsap.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsapScrollTrigger.min.js"
+      defer></script>
+    <script
+      src="https://unpkg.com/split-type"
+      defer></script>
+    <title>About</title>
+  </head>
+
+  <body class="flex flex-col min-h-screen bg-dark overflow-x-clip max-w-screen">
+    <div
+      id="loader"
+      class="loaderOverlay">
+      <div class="loader"></div>
+    </div>
+
+    <header class="z-10">
+      <nav
+        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
+        <div class="logo text-3xl md:text-4xl">Carl Manlan</div>
+
+        <ul class="flex gap-6 text-xs align-middle content-center flex-wrap">
+          <li class="content-center max-md:hidden">About</li>
+          <li class="content-center max-md:hidden">Media</li>
+          <li class="content-center max-md:hidden">Bluepint for Change</li>
+          <li class="content-center max-md:hidden">Bluepint for Success</li>
+          <li class="content-center max-md:hidden">
+            <button class="btn-primary">Get In Touch</button>
+          </li>
+          <li class="md:hidden">
+            <button
+              class="btn-hamburger"
+              popovertarget="hamburgerMenu">
+              <i data-feather="menu"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <nav
+        popover
+        role="menubar"
+        id="hamburgerMenu"
+        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
+        <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
+          <div class="logo text-3xl md:text-4xl uppercase text-primary">
+            Carl Manlan
+          </div>
+          <button
+            popovertarget="hamburgerMenu"
+            class="grid place-content-center">
+            <i
+              data-feather="x"
+              class="text-primary"
+              width="32"
+              height="32"></i>
+          </button>
+        </div>
+        <div class="body grow relative overflow-x-clip">
+          <div class="content flex flex-col gap-4">
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  About
+                </p>
+              </a>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Media
+                </p>
+              </a>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Change
+                </p>
+              </a>
+            </div>
+            <div class="menuBlock px-(--menu-padding-x)">
+              <a
+                href=""
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Success
+                </p>
+              </a>
+            </div>
+            <!-- <div class="menuBlock px-(--menu-padding-x)">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Multi Menu
+                </p>
+                <details>
+                  <summary class="flex justify-between">
+                    Item 1 <i data-feather="arrow-right"></i>
+                  </summary>
+                  <div
+                    class="detailBody px-(--menu-padding-x) absolute inset-0 bg-inherit">
+                    <div class="goback flex gap-6">
+                      <i data-feather="arrow-left"></i>
+                      <p role="text-xl font-bold">Main Menu</p>
+                    </div>
+                    <hr class="bg-gray-500 py-2" />
+                    <p
+                      role="heading"
+                      class="text-xl py-4 block">
+                      Item 1
+                    </p>
+                    <ul>
+                      <li><a href="#">SubItem 1</a></li>
+                      <li><a href="#">SubItem 2</a></li>
+                      <li><a href="#">SubItem 3</a></li>
+                      <li><a href="#">SubItem 4</a></li>
+                      <li><a href="#">SubItem 5</a></li>
+                      <li><a href="#">SubItem 6</a></li>
+                    </ul>
+                  </div>
+                </details>
+              </div> -->
+            <div class="menuBlock px-(--menu-padding-x)">
+              <button class="btn-primary mt-4">Get In Touch</button>
+            </div>
+          </div>
+        </div>
+        <div class="foot px-(--menu-padding-x)">
+          <div class="social-links">
+            <ul class="flex gap-6 justify-around">
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="grow">
+      <section class="bannerSection font-medium w-full relative flex">
+        <div
+          class="hexBg after:absolute after:inset-0 after:bg-linear-to-b after:from-dark/30 after:via-dark/30 after:via-70% after:to-dark bgEffect absolute inset-0 z-0"
+          data-gradX="0.8"
+          data-gradY="-0.5"
+          data-gradSize="farthest-corner"
+          data-box-dimension="180"></div>
+        <div
+          class="content container max-lg:pb-6 mt-auto max-lg:text-center z-1">
+          <div
+            class="text-wrapper lg:py-16 uppercase text-white items-end content-center font-medium">
+            <div data-by=".word">
+              <h1 class="text-xl/relaxed md:text-3xl/relaxed text-center">
+                Explore the latest articles, features, and interviews
+                highlighting Carl Manlan's insights on human sustainability,
+                inclusive economic transformation, and strategic innovation -
+                thought leadership designed to inform, inspire, and drive
+                meaningful action
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="mediaSection font-medium uppercase text-light w-full py-10">
+        <div class="container mediaGrid">
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  Libérons le potentiel des entrepreneuses africaines!
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  Fintech Must Embrace Universal Inclusion
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  Libérons le potentiel des entrepreneuses africaines!
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  Fintech Must Embrace Universal Inclusion
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  La santé mentale reste taboue dans l’agenda du développement
+                  humain en Afrique
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  Libérons le potentiel des entrepreneuses africaines!
+                </h2>
+              </div>
+            </div>
+          </a>
+          <a
+            href="#"
+            class="contents">
+            <div class="card">
+              <div
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
+              <div class="txtWrapper">
+                <h2 class="text-xl">
+                  Fintech Must Embrace Universal Inclusion
+                </h2>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="curtain">
+      <div class="bg-gray py-4">
+        <div
+          class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
+          <nav class="grid place-content-center">
+            <ul class="flex gap-6">
+              <li><a href="#">Terms & Conditons</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </nav>
+          <div class="social-links max-md:w-full">
+            <ul class="flex justify-around gap-6">
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
+              </li>
+              <li>
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

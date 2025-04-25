@@ -4,7 +4,7 @@ export const AnimateByElements = () => {
     document.querySelectorAll('[data-by] .line')
   ).map((line) => line.parentElement);
   const uniqueLineParents = Array.from(new Set(lineParents));
-  console.log('animateByElements parents:', uniqueLineParents);
+  // console.log('animateByElements parents:', uniqueLineParents);
 
   uniqueLineParents.forEach((parent) => {
     const parentTl = gsap.timeline({
@@ -18,7 +18,7 @@ export const AnimateByElements = () => {
       y: 50,
       opacity: 0,
     });
-    console.log('animateByElements animateBy:', animateBy);
+    // console.log('animateByElements animateBy:', animateBy);
     parentTl.to(parent.querySelectorAll(animateBy), {
       y: 0,
       opacity: 1,
@@ -38,7 +38,7 @@ export const AnimateScrubByElements = () => {
     document.querySelectorAll('[data-scrub-by] .line')
   ).map((line) => line.parentElement);
   const uniqueLineParents = Array.from(new Set(lineParents));
-  console.log('animateScrubByElements parents:', uniqueLineParents);
+  // console.log('animateScrubByElements parents:', uniqueLineParents);
 
   uniqueLineParents.forEach((parent) => {
     const animateBy = parent.getAttribute('data-scrub-by') ?? '.char';

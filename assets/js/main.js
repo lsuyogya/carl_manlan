@@ -54,6 +54,7 @@ function lenisInit() {
 }
 
 function RemoveLoader() {
+  window.scrollTo({ top: 0 });
   return new Promise((resolve) => {
     const loader = document.getElementById('loader');
     if (!loader) return;
