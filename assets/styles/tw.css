@@ -1,6 +1,6 @@
 /* .\tailwindcss-windows.exe --input ./assets/styles/tw.css --output ./assets/styles/output.css --watch */
 
-@import "tailwindcss";
+@import 'tailwindcss';
 @source not "../fonts";
 @source not "../icons";
 @source not "../images";
@@ -9,32 +9,32 @@
 
 @font-face {
   font-family: Oswald;
-  src: url("../fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+  src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
 }
 
 @font-face {
   font-family: OvertheRainbow;
-  src: url("../fonts/OvertheRainbow-Regular.ttf") format("truetype");
+  src: url('../fonts/OvertheRainbow-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
   font-family: Poppins;
-  src: url("../fonts/Poppins-Bold.ttf") format("truetype");
+  src: url('../fonts/Poppins-Bold.ttf') format('truetype');
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
   font-family: Poppins;
-  src: url("../fonts/Poppins-Regular.ttf") format("truetype");
+  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: Splash;
-  src: url("../fonts/Splash-Regular.ttf") format("truetype");
+  src: url('../fonts/Splash-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: 400;
 }
@@ -48,7 +48,7 @@
 
   --font-oswald: Oswald;
   --font-poppins: Poppins;
-  --font-over-the-rainbow: "OvertheRainbow";
+  --font-over-the-rainbow: 'OvertheRainbow';
   --font-splash: Splash;
 }
 
@@ -71,7 +71,7 @@
   }
 }
 
-[class*="btn-"] {
+[class*='btn-'] {
   @apply px-6 py-2 rounded-full uppercase max-w-max cursor-pointer;
 }
 
@@ -103,4 +103,12 @@
         hue-rotate(122deg) brightness(96%) contrast(89%);
     }
   }
+}
+
+.btn-filter[data-active] {
+  @apply rounded-md border bg-dark not-[:has(~:hover)]:bg-primary border-primary transition-colors duration-600;
+}
+
+.btn-filter {
+  @apply !rounded-md border bg-dark border-secondary hover:bg-primary hover:border-primary transition-colors duration-600;
 }
