@@ -86,17 +86,35 @@
     <header class="z-10">
       <nav
         class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
-        <div class="logo text-3xl md:text-4xl">Carl Manlan</div>
+        <div class="logo text-3xl md:text-4xl">
+          <a
+            href="index.html"
+            class="contents"
+            >Carl Manlan</a
+          >
+        </div>
 
-        <ul class="flex gap-6 text-xs align-middle content-center flex-wrap">
-          <li class="content-center max-md:hidden">About</li>
-          <li class="content-center max-md:hidden">Media</li>
-          <li class="content-center max-md:hidden">Bluepint for Change</li>
-          <li class="content-center max-md:hidden">Bluepint for Success</li>
-          <li class="content-center max-md:hidden">
+        <ul class="flex gap-6 text-sm align-middle content-center flex-wrap">
+          <li class="content-center max-lg:hidden">
+            <a
+              href="about.html"
+              class="">
+              About
+            </a>
+          </li>
+          <li class="content-center max-lg:hidden">
+            <a href="media.html"> Media </a>
+          </li>
+          <li class="content-center max-lg:hidden">
+            <a href="blueprint_for_change.html">Blueprint for Change</a>
+          </li>
+          <li class="content-center max-lg:hidden">
+            <a href="blueprint_for_success.html">Blueprint for Success</a>
+          </li>
+          <li class="content-center max-lg:hidden">
             <button class="btn-primary">Get In Touch</button>
           </li>
-          <li class="md:hidden">
+          <li class="lg:hidden">
             <button
               class="btn-hamburger"
               popovertarget="hamburgerMenu">
@@ -112,7 +130,11 @@
         class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
         <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
           <div class="logo text-3xl md:text-4xl uppercase text-primary">
-            Carl Manlan
+            <a
+              href="index.html"
+              class="contents">
+              Carl Manlan
+            </a>
           </div>
           <button
             popovertarget="hamburgerMenu"
@@ -128,7 +150,7 @@
           <div class="content flex flex-col gap-4">
             <div class="menuBlock px-(--menu-padding-x)">
               <a
-                href=""
+                href="about.html"
                 class="contents">
                 <p
                   class="text-xl"
@@ -139,7 +161,7 @@
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
               <a
-                href=""
+                href="media.html"
                 class="contents">
                 <p
                   class="text-xl"
@@ -150,7 +172,7 @@
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
               <a
-                href=""
+                href="blueprint_for_change.html"
                 class="contents">
                 <p
                   class="text-xl"
@@ -161,7 +183,7 @@
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
               <a
-                href=""
+                href="blueprint_for_success.html"
                 class="contents">
                 <p
                   class="text-xl"
@@ -171,38 +193,38 @@
               </a>
             </div>
             <!-- <div class="menuBlock px-(--menu-padding-x)">
-              <p
-                class="text-xl"
-                role="heading">
-                Multi Menu
-              </p>
-              <details>
-                <summary class="flex justify-between">
-                  Item 1 <i data-feather="arrow-right"></i>
-                </summary>
-                <div
-                  class="detailBody px-(--menu-padding-x) absolute inset-0 bg-inherit">
-                  <div class="goback flex gap-6">
-                    <i data-feather="arrow-left"></i>
-                    <p role="text-xl font-bold">Main Menu</p>
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Multi Menu
+                </p>
+                <details>
+                  <summary class="flex justify-between">
+                    Item 1 <i data-feather="arrow-right"></i>
+                  </summary>
+                  <div
+                    class="detailBody px-(--menu-padding-x) absolute inset-0 bg-inherit">
+                    <div class="goback flex gap-6">
+                      <i data-feather="arrow-left"></i>
+                      <p role="text-xl font-bold">Main Menu</p>
+                    </div>
+                    <hr class="bg-gray-500 py-2" />
+                    <p
+                      role="heading"
+                      class="text-xl py-4 block">
+                      Item 1
+                    </p>
+                    <ul>
+                      <li><a href="#">SubItem 1</a></li>
+                      <li><a href="#">SubItem 2</a></li>
+                      <li><a href="#">SubItem 3</a></li>
+                      <li><a href="#">SubItem 4</a></li>
+                      <li><a href="#">SubItem 5</a></li>
+                      <li><a href="#">SubItem 6</a></li>
+                    </ul>
                   </div>
-                  <hr class="bg-gray-500 py-2" />
-                  <p
-                    role="heading"
-                    class="text-xl py-4 block">
-                    Item 1
-                  </p>
-                  <ul>
-                    <li><a href="#">SubItem 1</a></li>
-                    <li><a href="#">SubItem 2</a></li>
-                    <li><a href="#">SubItem 3</a></li>
-                    <li><a href="#">SubItem 4</a></li>
-                    <li><a href="#">SubItem 5</a></li>
-                    <li><a href="#">SubItem 6</a></li>
-                  </ul>
-                </div>
-              </details>
-            </div> -->
+                </details>
+              </div> -->
             <div class="menuBlock px-(--menu-padding-x)">
               <button class="btn-primary mt-4">Get In Touch</button>
             </div>

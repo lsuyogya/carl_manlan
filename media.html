@@ -2,66 +2,106 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <link
       rel="preload"
       href="./assets/fonts/Oswald-VariableFont_wght.ttf"
       as="font"
       type="font/ttf"
-      crossorigin
-    />
+      crossorigin />
     <link
       rel="preload"
       href="./assets/fonts/OvertheRainbow-Regular.ttf"
       as="font"
       type="font/ttf"
-      crossorigin
-    />
-    <link rel="stylesheet" href="./assets/styles/menu.css" />
-    <link rel="stylesheet" href="./assets/styles/lenis.min.css" />
-    <link rel="stylesheet" href="./assets/styles/main.css" />
-    <link rel="stylesheet" href="./assets/styles/output.css" />
-    <link rel="stylesheet" href="./assets/styles/splide.min.css" />
-    <script src="./assets/js/feather.min.js" defer></script>
-    <script src="./assets/js/seedrandom.min.js" defer></script>
-    <script src="./assets/js/main.js" type="module" defer></script>
-    <script src="./assets/js/splide.min.js" defer></script>
-    <script src="./assets/js/lenis.min.js" defer></script>
-    <script src="./assets/js/gsap.min.js" defer></script>
-    <script src="./assets/js/gsapScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/split-type" defer></script>
+      crossorigin />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/menu.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/lenis.min.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/output.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/splide.min.css" />
+    <script
+      src="./assets/js/feather.min.js"
+      defer></script>
+    <script
+      src="./assets/js/seedrandom.min.js"
+      defer></script>
+    <script
+      src="./assets/js/main.js"
+      type="module"
+      defer></script>
+    <script
+      src="./assets/js/splide.min.js"
+      defer></script>
+    <script
+      src="./assets/js/lenis.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsap.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsapScrollTrigger.min.js"
+      defer></script>
+    <script
+      src="https://unpkg.com/split-type"
+      defer></script>
     <title>About</title>
   </head>
 
   <body class="flex flex-col min-h-screen bg-dark overflow-x-clip max-w-screen">
-    <div id="loader" class="loaderOverlay">
+    <div
+      id="loader"
+      class="loaderOverlay">
       <div class="loader"></div>
     </div>
 
     <header class="z-10">
       <nav
-        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium"
-      >
-        <div class="logo text-3xl md:text-4xl">Carl Manlan</div>
+        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
+        <div class="logo text-3xl md:text-4xl">
+          <a
+            href="index.html"
+            class="contents"
+            >Carl Manlan</a
+          >
+        </div>
 
         <ul class="flex gap-6 text-sm align-middle content-center flex-wrap">
-          <li class="content-center max-md:hidden">
-            <a href="about.html"> About </a>
+          <li class="content-center max-lg:hidden">
+            <a
+              href="about.html"
+              class="">
+              About
+            </a>
           </li>
-          <li class="content-center max-md:hidden">
-            <a href="media.html" class="text-primary"> Media </a>
+          <li class="content-center max-lg:hidden text-primary">
+            <a href="media.html"> Media </a>
           </li>
-          <li class="content-center max-md:hidden">
-            <a href="#">Bluepint for Change</a>
+          <li class="content-center max-lg:hidden">
+            <a href="blueprint_for_change.html">Blueprint for Change</a>
           </li>
-          <li class="content-center max-md:hidden">
-            <a href="#">Bluepint for Success</a>
+          <li class="content-center max-lg:hidden">
+            <a href="blueprint_for_success.html">Blueprint for Success</a>
           </li>
-          <li class="content-center max-md:hidden">
+          <li class="content-center max-lg:hidden">
             <button class="btn-primary">Get In Touch</button>
           </li>
-          <li class="md:hidden">
-            <button class="btn-hamburger" popovertarget="hamburgerMenu">
+          <li class="lg:hidden">
+            <button
+              class="btn-hamburger"
+              popovertarget="hamburgerMenu">
               <i data-feather="menu"></i>
             </button>
           </li>
@@ -71,39 +111,69 @@
         popover
         role="menubar"
         id="hamburgerMenu"
-        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start"
-      >
+        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
         <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
           <div class="logo text-3xl md:text-4xl uppercase text-primary">
-            Carl Manlan
+            <a
+              href="index.html"
+              class="contents">
+              Carl Manlan
+            </a>
           </div>
           <button
             popovertarget="hamburgerMenu"
-            class="grid place-content-center"
-          >
-            <i data-feather="x" class="text-primary" width="32" height="32"></i>
+            class="grid place-content-center">
+            <i
+              data-feather="x"
+              class="text-primary"
+              width="32"
+              height="32"></i>
           </button>
         </div>
         <div class="body grow relative overflow-x-clip">
           <div class="content flex flex-col gap-4">
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">About</p>
+              <a
+                href="about.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  About
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Media</p>
+              <a
+                href="media.html"
+                class="contents">
+                <p
+                  class="text-xl text-primary"
+                  role="heading">
+                  Media
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Blueprint For Change</p>
+              <a
+                href="blueprint_for_change.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Change
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Blueprint For Success</p>
+              <a
+                href="blueprint_for_success.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Success
+                </p>
               </a>
             </div>
             <!-- <div class="menuBlock px-(--menu-padding-x)">
@@ -148,19 +218,29 @@
           <div class="social-links">
             <ul class="flex gap-6 justify-around">
               <li>
-                <img loading="lazy" src="./assets/icons/Linkedin.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Facebook.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/X.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Youtube.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Instagram.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
               </li>
             </ul>
           </div>
@@ -175,14 +255,11 @@
           data-gradX="0.8"
           data-gradY="-0.5"
           data-gradSize="farthest-corner"
-          data-box-dimension="180"
-        ></div>
+          data-box-dimension="180"></div>
         <div
-          class="content container max-lg:pb-6 mt-auto max-lg:text-center z-1"
-        >
+          class="content container max-lg:pb-6 mt-auto max-lg:text-center z-1">
           <div
-            class="text-wrapper lg:py-16 uppercase text-white items-end content-center font-medium"
-          >
+            class="text-wrapper lg:py-16 uppercase text-white items-end content-center font-medium">
             <div data-by=".word">
               <h1 class="text-xl/relaxed md:text-3xl/relaxed text-center">
                 Explore the latest articles, features, and interviews
@@ -196,14 +273,14 @@
         </div>
       </section>
       <section
-        class="mediaSection font-medium uppercase text-light w-full py-10"
-      >
+        class="mediaSection font-medium uppercase text-light w-full py-10">
         <div class="container mediaGrid">
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   La santé mentale reste taboue dans l’agenda du développement
@@ -212,11 +289,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   Libérons le potentiel des entrepreneuses africaines!
@@ -224,11 +302,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   Fintech Must Embrace Universal Inclusion
@@ -236,11 +315,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   La santé mentale reste taboue dans l’agenda du développement
@@ -249,11 +329,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   Libérons le potentiel des entrepreneuses africaines!
@@ -261,11 +342,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   Fintech Must Embrace Universal Inclusion
@@ -273,11 +355,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   La santé mentale reste taboue dans l’agenda du développement
@@ -286,11 +369,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   Libérons le potentiel des entrepreneuses africaines!
@@ -298,11 +382,12 @@
               </div>
             </div>
           </a>
-          <a href="#" class="contents">
+          <a
+            href="#"
+            class="contents">
             <div class="card">
               <div
-                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"
-              ></div>
+                class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]"></div>
               <div class="txtWrapper">
                 <h2 class="text-xl">
                   Fintech Must Embrace Universal Inclusion
@@ -317,8 +402,7 @@
     <footer class="curtain">
       <div class="bg-gray py-4">
         <div
-          class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase"
-        >
+          class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
           <nav class="grid place-content-center">
             <ul class="flex gap-6">
               <li><a href="#">Terms & Conditons</a></li>
@@ -328,19 +412,29 @@
           <div class="social-links max-md:w-full">
             <ul class="flex justify-around gap-6">
               <li>
-                <img loading="lazy" src="./assets/icons/Linkedin.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Facebook.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/X.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Youtube.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Instagram.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
               </li>
             </ul>
           </div>

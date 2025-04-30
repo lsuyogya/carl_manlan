@@ -2,66 +2,106 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <link
       rel="preload"
       href="./assets/fonts/Oswald-VariableFont_wght.ttf"
       as="font"
       type="font/ttf"
-      crossorigin
-    />
+      crossorigin />
     <link
       rel="preload"
       href="./assets/fonts/OvertheRainbow-Regular.ttf"
       as="font"
       type="font/ttf"
-      crossorigin
-    />
-    <link rel="stylesheet" href="./assets/styles/menu.css" />
-    <link rel="stylesheet" href="./assets/styles/lenis.min.css" />
-    <link rel="stylesheet" href="./assets/styles/main.css" />
-    <link rel="stylesheet" href="./assets/styles/output.css" />
-    <link rel="stylesheet" href="./assets/styles/splide.min.css" />
-    <script src="./assets/js/feather.min.js" defer></script>
-    <script src="./assets/js/seedrandom.min.js" defer></script>
-    <script src="./assets/js/main.js" type="module" defer></script>
-    <script src="./assets/js/splide.min.js" defer></script>
-    <script src="./assets/js/lenis.min.js" defer></script>
-    <script src="./assets/js/gsap.min.js" defer></script>
-    <script src="./assets/js/gsapScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/split-type" defer></script>
+      crossorigin />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/menu.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/lenis.min.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/output.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/splide.min.css" />
+    <script
+      src="./assets/js/feather.min.js"
+      defer></script>
+    <script
+      src="./assets/js/seedrandom.min.js"
+      defer></script>
+    <script
+      src="./assets/js/main.js"
+      type="module"
+      defer></script>
+    <script
+      src="./assets/js/splide.min.js"
+      defer></script>
+    <script
+      src="./assets/js/lenis.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsap.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsapScrollTrigger.min.js"
+      defer></script>
+    <script
+      src="https://unpkg.com/split-type"
+      defer></script>
     <title>About</title>
   </head>
 
   <body class="flex flex-col min-h-screen bg-dark overflow-x-clip max-w-screen">
-    <div id="loader" class="loaderOverlay">
+    <div
+      id="loader"
+      class="loaderOverlay">
       <div class="loader"></div>
     </div>
 
     <header class="z-10">
       <nav
-        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium"
-      >
-        <div class="logo text-3xl md:text-4xl">Carl Manlan</div>
+        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
+        <div class="logo text-3xl md:text-4xl">
+          <a
+            href="index.html"
+            class="contents"
+            >Carl Manlan</a
+          >
+        </div>
 
         <ul class="flex gap-6 text-sm align-middle content-center flex-wrap">
-          <li class="content-center max-md:hidden">
-            <a href="about.html" class="text-primary"> About </a>
+          <li class="content-center max-lg:hidden">
+            <a
+              href="about.html"
+              class="">
+              About
+            </a>
           </li>
-          <li class="content-center max-md:hidden">
+          <li class="content-center max-lg:hidden">
             <a href="media.html"> Media </a>
           </li>
-          <li class="content-center max-md:hidden">
-            <a href="#">Bluepint for Change</a>
+          <li class="content-center max-lg:hidden">
+            <a href="blueprint_for_change.html">Blueprint for Change</a>
           </li>
-          <li class="content-center max-md:hidden">
-            <a href="#">Bluepint for Success</a>
+          <li class="content-center max-lg:hidden text-primary">
+            <a href="blueprint_for_success.html">Blueprint for Success</a>
           </li>
-          <li class="content-center max-md:hidden">
+          <li class="content-center max-lg:hidden">
             <button class="btn-primary">Get In Touch</button>
           </li>
-          <li class="md:hidden">
-            <button class="btn-hamburger" popovertarget="hamburgerMenu">
+          <li class="lg:hidden">
+            <button
+              class="btn-hamburger"
+              popovertarget="hamburgerMenu">
               <i data-feather="menu"></i>
             </button>
           </li>
@@ -71,39 +111,69 @@
         popover
         role="menubar"
         id="hamburgerMenu"
-        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start"
-      >
+        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
         <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
           <div class="logo text-3xl md:text-4xl uppercase text-primary">
-            Carl Manlan
+            <a
+              href="index.html"
+              class="contents">
+              Carl Manlan
+            </a>
           </div>
           <button
             popovertarget="hamburgerMenu"
-            class="grid place-content-center"
-          >
-            <i data-feather="x" class="text-primary" width="32" height="32"></i>
+            class="grid place-content-center">
+            <i
+              data-feather="x"
+              class="text-primary"
+              width="32"
+              height="32"></i>
           </button>
         </div>
         <div class="body grow relative overflow-x-clip">
           <div class="content flex flex-col gap-4">
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">About</p>
+              <a
+                href="about.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  About
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Media</p>
+              <a
+                href="media.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Media
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Blueprint For Change</p>
+              <a
+                href="blueprint_for_change.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Change
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Blueprint For Success</p>
+              <a
+                href="blueprint_for_success.html"
+                class="contents">
+                <p
+                  class="text-xl text-primary"
+                  role="heading">
+                  Blueprint For Success
+                </p>
               </a>
             </div>
             <!-- <div class="menuBlock px-(--menu-padding-x)">
@@ -148,19 +218,29 @@
           <div class="social-links">
             <ul class="flex gap-6 justify-around">
               <li>
-                <img loading="lazy" src="./assets/icons/Linkedin.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Facebook.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/X.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Youtube.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Instagram.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
               </li>
             </ul>
           </div>
@@ -170,361 +250,209 @@
 
     <main class="grow">
       <section
-        class="bannerSection font-medium relative flex h-screen w-screen"
-      >
+        class="bannerSection font-medium relative flex h-screen w-screen">
         <div
-          class="content container max-lg:pb-6 gap-8 m-auto max-lg:text-center z-1"
-        >
+          class="content container max-lg:pb-6 gap-8 m-auto max-lg:text-center z-1">
           <div
-            class="bgWrapper absolute inset-0 after:absolute after:inset-0 after:bg-linear-to-b after:from-dark/10 after:via-dark/60 after:via-20% after:to-dark"
-          >
+            class="bgWrapper absolute inset-0 after:absolute after:inset-0 after:bg-linear-to-b after:from-dark/10 after:via-dark/60 after:via-20% after:to-dark">
             <img
-              src="./assets/images/banner_change.jpg"
+              src="./assets/images/banner_success.jpg"
               alt=""
-              class="h-screen w-screen object-cover"
-            />
+              class="h-screen w-screen object-cover object-[50%_40%]" />
           </div>
           <div
-            class="text-wrapper lg:py-8 uppercase text-white items-end content-center text-center"
-          >
+            class="text-wrapper lg:py-8 uppercase text-white items-end content-center text-center">
             <div data-by=".char">
               <h1
-                class="text-primary text-center text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-              >
+                class="text-primary text-center text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
                 <span
-                  class="md:-ml-[50%] text-centerm font-splash text-light text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
-                >
+                  class="md:-ml-[50%] text-centerm font-splash text-light text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
                   Blueprints
                 </span>
                 <br />
-                <span class="md:-mr-[50%] text-center">For Change</span>
+                <span class="md:-mr-[50%] text-center">For Success</span>
               </h1>
             </div>
           </div>
           <div
-            class="decorImg1 absolute inset-x-4 inset-y-4 my-auto h-max w-max opacity-50"
-          >
+            class="decorImg1 absolute inset-x-8 inset-y-4 my-auto h-max w-max opacity-50">
             <img
-              src="./assets/icons/Circles.svg"
+              src="./assets/icons/icon2.svg"
               alt=""
-              class="lg:w-[236px] lg:h-[119px]"
-            />
+              class="" />
           </div>
           <div
-            class="decorImg2 absolute inset-x-4 inset-y-4 mt-auto ml-auto mr-4 h-max w-max opacity-50"
-          >
-            <img src="./assets/icons/squarePolka.svg" alt="" />
+            class="decorImg2 absolute inset-x-4 inset-y-4 mt-auto ml-auto mr-4 h-max w-max opacity-50">
+            <img
+              src="./assets/icons/icon1.svg"
+              alt="" />
           </div>
         </div>
       </section>
-
-      <section class="">
-        <div class="relative w-full">
-          <div
-            class="hexBg pattern1 bgEffect absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-b after:from-dark after:via-dark/40 after:via-10% after:to-dark/40"
-            data-gradX="0.9"
-            data-gradY="0.5"
-            data-gradSize="farthest-corner"
-            data-box-dimension="180"
-          ></div>
-          <div class="container z-1 relative">
-            <div class="grid py-20 md:grid-cols-2 text-light font-medium">
-              <h2
-                class="text-3xl/relaxed uppercase px-12"
-                data-scrub-by=".char"
-              >
-                These articles serve as practical guides, designed for leaders,
-                innovators, and change-makers who aim to drive lasting impact
-                through human sustainability, inclusive economic strategies, and
-                purposeful leadership.
-              </h2>
-              <p class="font-poppins font-bold px-12" data-scrub-by=".word">
-                Each Blueprint offers clarity and actionable steps, empowering
-                readers to translate ideas into tangible solutions. - highlight
-                that these are very forward thinking ideas and laying the
-                blueprint for the future.
-              </p>
-            </div>
-
-            <div
-              class="btnGroup flex gap-4 flex-wrap w-full justify-center py-10 text-light uppercase font-medium"
-            >
-              <button class="btn-filter" data-active>All</button>
-              <button class="btn-filter">
-                Economic Development and Financial Inclusion
-              </button>
-              <button class="btn-filter">Youth and Human Capital</button>
-              <button class="btn-filter">
-                African Leadership & Governance
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="container blogGrid bg-dark" style="--grid-gap: 2.5rem">
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img1.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img2.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Youth and Human Capital
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img3.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img1.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img2.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Youth and Human Capital
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img3.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img1.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img2.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Youth and Human Capital
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img3.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
+      <section class="relative w-full">
+        <div
+          class="hexBg pattern1 bgEffect absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-b after:from-dark after:via-dark/40 after:via-10% after:to-dark/40"
+          data-gradX="0.9"
+          data-gradY="0.5"
+          data-gradSize="farthest-corner"
+          data-box-dimension="180"></div>
+        <div class="container grid py-20 md:grid-cols-2 text-light font-medium">
+          <h2 class="text-3xl/relaxed uppercase px-12 z-1 relative">
+            Blueprints for Success is Carl Manlan’s signature mentorship
+            program, designed to guide ambitious individuals on their journey
+            toward
+            <span class="text-primary contents">
+              impactful leadership and meaningful personal growth </span
+            >.
+          </h2>
+          <p
+            class="font-poppins font-bold px-12"
+            data-scrub-by=".word">
+            Each Blueprint offers clarity and actionable steps, empowering
+            readers to translate ideas into tangible solutions. - highlight that
+            these are very forward thinking ideas and laying the blueprint for
+            the future.
+          </p>
         </div>
         <div
-          class="container relative subscribe blogGrid bg-dark my-20"
-          style="--grid-gap: 2.5rem"
-        >
+          class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1 relative">
           <div
-            class="bgGrad absolute inset-0 bg-linear-to-b from-dark/30 via-dark/80 to-dark"
-          ></div>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img1.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img2.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Youth and Human Capital
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <article class="blogCard flex flex-col gap-10">
-            <div class="imgWrapper aspect-[3/2] rounded-md">
-              <img
-                src="./assets/images/img3.png"
-                class="aspect-[3/2] rounded-md"
-                alt=""
-              />
-            </div>
-            <div
-              class="btn-tag !rounded-md border border-primary text-light font-medium"
-            >
-              Economic Development and Financial Inclusion
-            </div>
-            <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-            <p class="text-light font-poppins text-sm">
-              Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-              and grew up with a deep sense of helping others
-            </p>
-          </article>
-          <div
-            class="absolute inset-0 text-light font-medium uppercase text-center"
-          >
-            <div
-              class="bgGrad absolute inset-0 bg-linear-to-b from-dark/30 via-dark/80 to-dark"
-            ></div>
-            <div
-              class="txtWrapper z-1 absolute inset-x-0 inset-y-[60%] grid place-content-center gap-10"
-            >
-              <p class="text-3xl" data-by=".line">
-                Access Carl's full library of Blueprints by subscribing below.
-                Join a growing community dedicated to creating meaningful change
-                - one idea at a time.
+            class="text-wrapper lg:py-8 uppercase text-light/75 items-end content-center">
+            <div data-by=".word">
+              <h2 class="text-2xl uppercase font-medium">
+                Carl’s Mentorship Mission
+              </h2>
+              <p class="text-sm font-poppins font-bold py-10">
+                Carl views mentorship as a collaborative journey—an ongoing
+                conversation where questions matter more than answers. His goal
+                is to nurture curiosity, build resilience, and develop
+                purposeful leaders capable of shaping sustainable futures.
+                Through focused guidance, practical strategies, and real-world
+                applications, participants learn to leverage their strengths,
+                refine their vision, and amplify their impact.
               </p>
-              <button class="btn-primary mx-auto">
-                Subscribe for full access
-              </button>
             </div>
+          </div>
+          <div class="img-wrapper flex">
+            <img
+              loading="eager"
+              src="./assets/images/Carl_Hero_Img.png"
+              class="max-h-[80vh] mx-auto mt-auto object-scale-down"
+              width="500"
+              height="500"
+              alt="" />
+          </div>
+        </div>
+      </section>
+      <section class="cardSection">
+        <div
+          class="container grid grid-cols-[repeat(auto-fit,_minmax(340px,_1fr))] gap-10 bg-dark text-light font-medium">
+          <div class="card p-10 grid gap-6 border rounded-2xl border-light">
+            <span class="block text-9xl text-dark txtStroke">1</span>
+            <h1 class="text-3xl uppercase">
+              Clarity <br />
+              & Mindset
+            </h1>
+            <ul
+              class="font-poppins font-bold list-disc list-outside ml-4 text-xs space-y-1 text-light/75">
+              <li>Embrace the Prosperity Mindset</li>
+              <li>Establish clear goals and vision</li>
+              <li>Identify and harness personal strengths</li>
+            </ul>
+          </div>
+          <div class="card p-10 grid gap-6 border rounded-2xl border-light">
+            <span class="block text-9xl text-dark txtStroke">2</span>
+            <h1 class="text-3xl uppercase">
+              Strategic Growth
+              <br />
+              & Action
+            </h1>
+            <ul
+              class="font-poppins font-bold list-disc list-outside ml-4 text-xs space-y-1 text-light/75">
+              <li>Map actionable steps toward tangible outcomes</li>
+              <li>Utilize strategic thinking for informed decision-making</li>
+              <li>
+                Learn the art of impactful storytelling and thought leadership
+              </li>
+            </ul>
+          </div>
+          <div class="card p-10 grid gap-6 border rounded-2xl border-light">
+            <span class="block text-9xl text-dark txtStroke">3</span>
+            <h1 class="text-3xl uppercase">Connection & Impact</h1>
+            <ul
+              class="font-poppins font-bold list-disc list-outside ml-4 text-xs space-y-1 text-light/75">
+              <li>Build meaningful networks and partnerships</li>
+              <li>Understand and leverage human sustainability principles</li>
+              <li>
+                Scale your influence to drive social and economic transformation
+              </li>
+            </ul>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="curtain">
+      <section class="relative py-20">
+        <div
+          class="hexBg pattern3 bgEffect absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-b after:from-dark after:via-dark/40 after:via-10% after:to-dark/40"
+          data-gradX="0.9"
+          data-gradY="0.5"
+          data-gradSize="farthest-corner"
+          data-box-dimension="212"></div>
+        <div class="container relative z-1 text-light text-center">
+          <h1 class="text-3xl font-medium uppercase">
+            Sign up now to start your journey toward <br />
+            <span class="text-primary"
+              >becoming the leader you aspire to be</span
+            >.
+          </h1>
+          <p class="mt-10 font-poppins text-light/75 font-bold text-xs/relaxed">
+            Be part of an exclusive mentorship experience led by Carl Manlan—
+            <br class="max-md:hidden" />
+            where meaningful growth meets purposeful leadership. Spaces are
+            limited.
+          </p>
+
+          <form
+            class="flex flex-col gap-6 max-w-[44rem] mx-auto text-left mt-10">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="formGrp grid gap-2 w-full">
+                <label for="first-name">First Name*</label>
+                <input
+                  required
+                  class="rounded-full bg-light/25 px-8 py-4"
+                  id="first-name"
+                  type="text" />
+              </div>
+              <div class="formGrp grid gap-2 w-full">
+                <label for="last-name">Last Name*</label>
+                <input
+                  required
+                  class="rounded-full bg-light/25 px-8 py-4"
+                  id="last-name"
+                  type="text" />
+              </div>
+            </div>
+            <div class="formGrp grid gap-2 w-full">
+              <label for="email">Email Address*</label>
+              <input
+                required
+                class="rounded-full bg-light/25 px-8 py-4"
+                id="email"
+                type="email" />
+            </div>
+            <button
+              type="submit"
+              class="btn-primary hover:!text-primary">
+              Apply
+            </button>
+          </form>
+        </div>
+      </section>
       <div class="bg-gray py-4">
         <div
-          class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase"
-        >
+          class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
           <nav class="grid place-content-center">
             <ul class="flex gap-6">
               <li><a href="#">Terms & Conditons</a></li>
@@ -534,19 +462,29 @@
           <div class="social-links max-md:w-full">
             <ul class="flex justify-around gap-6">
               <li>
-                <img loading="lazy" src="./assets/icons/Linkedin.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Facebook.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/X.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Youtube.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Instagram.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
               </li>
             </ul>
           </div>

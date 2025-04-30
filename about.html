@@ -2,70 +2,106 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
     <link
       rel="preload"
       href="./assets/fonts/Oswald-VariableFont_wght.ttf"
       as="font"
       type="font/ttf"
-      crossorigin
-    />
+      crossorigin />
     <link
       rel="preload"
       href="./assets/fonts/OvertheRainbow-Regular.ttf"
       as="font"
       type="font/ttf"
-      crossorigin
-    />
-    <link rel="stylesheet" href="./assets/styles/menu.css" />
-    <link rel="stylesheet" href="./assets/styles/lenis.min.css" />
-    <link rel="stylesheet" href="./assets/styles/main.css" />
-    <link rel="stylesheet" href="./assets/styles/output.css" />
-    <link rel="stylesheet" href="./assets/styles/splide.min.css" />
-    <script src="./assets/js/feather.min.js" defer></script>
-    <script src="./assets/js/seedrandom.min.js" defer></script>
-    <script src="./assets/js/main.js" type="module" defer></script>
-    <script src="./assets/js/splide.min.js" defer></script>
-    <script src="./assets/js/lenis.min.js" defer></script>
-    <script src="./assets/js/gsap.min.js" defer></script>
-    <script src="./assets/js/gsapScrollTrigger.min.js" defer></script>
-    <script src="https://unpkg.com/split-type" defer></script>
+      crossorigin />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/menu.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/lenis.min.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/main.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/output.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/styles/splide.min.css" />
+    <script
+      src="./assets/js/feather.min.js"
+      defer></script>
+    <script
+      src="./assets/js/seedrandom.min.js"
+      defer></script>
+    <script
+      src="./assets/js/main.js"
+      type="module"
+      defer></script>
+    <script
+      src="./assets/js/splide.min.js"
+      defer></script>
+    <script
+      src="./assets/js/lenis.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsap.min.js"
+      defer></script>
+    <script
+      src="./assets/js/gsapScrollTrigger.min.js"
+      defer></script>
+    <script
+      src="https://unpkg.com/split-type"
+      defer></script>
     <title>About</title>
   </head>
 
   <body class="flex flex-col min-h-screen bg-dark overflow-x-clip max-w-screen">
-    <div id="loader" class="loaderOverlay">
+    <div
+      id="loader"
+      class="loaderOverlay">
       <div class="loader"></div>
     </div>
 
     <header class="z-10">
       <nav
-        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium"
-      >
-        <div class="logo text-3xl md:text-4xl">Carl Manlan</div>
+        class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
+        <div class="logo text-3xl md:text-4xl">
+          <a
+            href="index.html"
+            class="contents"
+            >Carl Manlan</a
+          >
+        </div>
 
         <ul class="flex gap-6 text-sm align-middle content-center flex-wrap">
-          <li class="content-center max-md:hidden">
+          <li class="content-center max-lg:hidden">
             <a
               href="about.html"
               class="text-primary">
               About
             </a>
           </li>
-          <li class="content-center max-md:hidden">
+          <li class="content-center max-lg:hidden">
             <a href="media.html"> Media </a>
           </li>
-          <li class="content-center max-md:hidden">
-            <a href="#">Bluepint for Change</a>
+          <li class="content-center max-lg:hidden">
+            <a href="blueprint_for_change.html">Blueprint for Change</a>
           </li>
-          <li class="content-center max-md:hidden">
-            <a href="#">Bluepint for Success</a>
+          <li class="content-center max-lg:hidden">
+            <a href="blueprint_for_success.html">Blueprint for Success</a>
           </li>
-          <li class="content-center max-md:hidden">
+          <li class="content-center max-lg:hidden">
             <button class="btn-primary">Get In Touch</button>
           </li>
-          <li class="md:hidden">
-            <button class="btn-hamburger" popovertarget="hamburgerMenu">
+          <li class="lg:hidden">
+            <button
+              class="btn-hamburger"
+              popovertarget="hamburgerMenu">
               <i data-feather="menu"></i>
             </button>
           </li>
@@ -75,39 +111,69 @@
         popover
         role="menubar"
         id="hamburgerMenu"
-        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start"
-      >
+        class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
         <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
           <div class="logo text-3xl md:text-4xl uppercase text-primary">
-            Carl Manlan
+            <a
+              href="index.html"
+              class="contents">
+              Carl Manlan
+            </a>
           </div>
           <button
             popovertarget="hamburgerMenu"
-            class="grid place-content-center"
-          >
-            <i data-feather="x" class="text-primary" width="32" height="32"></i>
+            class="grid place-content-center">
+            <i
+              data-feather="x"
+              class="text-primary"
+              width="32"
+              height="32"></i>
           </button>
         </div>
         <div class="body grow relative overflow-x-clip">
           <div class="content flex flex-col gap-4">
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">About</p>
+              <a
+                href="about.html"
+                class="contents">
+                <p
+                  class="text-xl text-primary"
+                  role="heading">
+                  About
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Media</p>
+              <a
+                href="media.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Media
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Blueprint For Change</p>
+              <a
+                href="blueprint_for_change.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Change
+                </p>
               </a>
             </div>
             <div class="menuBlock px-(--menu-padding-x)">
-              <a href="" class="contents">
-                <p class="text-xl" role="heading">Blueprint For Success</p>
+              <a
+                href="blueprint_for_success.html"
+                class="contents">
+                <p
+                  class="text-xl"
+                  role="heading">
+                  Blueprint For Success
+                </p>
               </a>
             </div>
             <!-- <div class="menuBlock px-(--menu-padding-x)">
@@ -152,19 +218,29 @@
           <div class="social-links">
             <ul class="flex gap-6 justify-around">
               <li>
-                <img loading="lazy" src="./assets/icons/Linkedin.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Facebook.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/X.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Youtube.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Instagram.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
               </li>
             </ul>
           </div>
@@ -179,18 +255,14 @@
           data-gradX="0.9"
           data-gradY="-0.5"
           data-gradSize="farthest-corner"
-          data-box-dimension="180"
-        ></div>
+          data-box-dimension="180"></div>
         <div
-          class="content container grid max-lg:pb-6 lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1"
-        >
+          class="content container grid max-lg:pb-6 lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1">
           <div
-            class="text-wrapper lg:py-8 uppercase text-white items-end content-center"
-          >
+            class="text-wrapper lg:py-8 uppercase text-white items-end content-center">
             <div data-by=".char">
               <h1
-                class="text-primary text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-              >
+                class="text-primary text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
                 Innovator <br />
                 Intraprenuer <br />
                 Catalyst
@@ -199,8 +271,7 @@
           </div>
           <div
             class="txt-wrapper max-lg:mt-8 flex font-poppins font-bold text-light/75 m-auto"
-            data-by=".word"
-          >
+            data-by=".word">
             Carl Manlan is a global leader driving inclusive economic
             transformation, human sustainability, and social impact through
             community financing, strategic innovation, and mentorship.
@@ -208,13 +279,11 @@
         </div>
       </section>
       <section
-        class="relative parallax-image-container overflow-hidden w-screen h-[60vh]"
-      >
+        class="relative parallax-image-container overflow-hidden w-screen h-[60vh]">
         <img
           src="./assets/images/banner_about.jpeg"
           alt="Carl holding a book"
-          class="w-full object-cover absolute bottom-0 left-0"
-        />
+          class="w-full object-cover absolute bottom-0 left-0" />
       </section>
       <section class="font-medium w-full relative flex flex-col py-20 lg:pb-0">
         <div
@@ -222,14 +291,11 @@
           data-gradX="0.9"
           data-gradY="-0.5"
           data-gradSize="farthest-corner"
-          data-box-dimension="180"
-        ></div>
+          data-box-dimension="180"></div>
         <div
-          class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1"
-        >
+          class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1">
           <div
-            class="text-wrapper lg:py-8 uppercase text-white items-end content-center"
-          >
+            class="text-wrapper lg:py-8 uppercase text-white items-end content-center">
             <div data-scrub-by=".word">
               <p class="max-w-[30ch] text-3xl">
                 Carl is committed to creating
@@ -240,8 +306,7 @@
           </div>
           <div
             class="txt-wrapper text-sm max-lg:mt-8 flex font-poppins font-bold text-light/75 m-auto"
-            data-scrub-by=".line"
-          >
+            data-scrub-by=".line">
             Carl’s impactful career spans leadership roles at influential
             organizations such as the Global Fund, UNDP, African Union, and
             Ecobank Foundation. He's widely recognized for his thought
@@ -252,8 +317,7 @@
           </div>
         </div>
         <div
-          class="content pt-10 container grid lg:grid-cols-2 gap-8 mt-auto z-1"
-        >
+          class="content pt-10 container grid lg:grid-cols-2 gap-8 mt-auto z-1">
           <div class="imgWrapper content-end w-full h-full justify-center">
             <img
               src="./assets/images/Carl_Alpha.png"
@@ -261,8 +325,7 @@
               height="500"
               width="500"
               class="object-scale-down mx-auto"
-              alt=""
-            />
+              alt="" />
           </div>
           <div class="txtWrapper text-light/75 flex flex-col gap-15">
             <div
@@ -320,56 +383,53 @@
         <!-- <div
           class="bgDiv z-0 bg-secondary absolute inset-0 after:absolute after:inset-0 after:bg-linear-to-l after:from-transparent after:to-dark before:absolute before:inset-0 before:bg-linear-to-b before:from-dark before:via-transparent before:to-dark"></div> -->
         <div
-          class="timelineBg z-0 bg-secondary absolute inset-0 after:absolute after:inset-x-0 after:top-0 after:bottom-1/2 before:absolute before:inset-x-0 before:bottom-0 before:top-1/2"
-        ></div>
+          class="timelineBg z-0 bg-secondary absolute inset-0 after:absolute after:inset-x-0 after:top-0 after:bottom-1/2 before:absolute before:inset-x-0 before:bottom-0 before:top-1/2"></div>
         <div
           class="hexBg bgEffect absolute inset-0"
           data-gradSize="100"
-          data-box-dimension="180"
-        ></div>
+          data-box-dimension="180"></div>
         <div
-          class="verticalTimeline grid auto-rows-[1fr] text-light text-left z-1 relative"
-        >
+          class="verticalTimeline grid auto-rows-[1fr] text-light text-left z-1 relative">
           <div
-            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1"
-          >
+            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
-              <img src="./assets/images/timelineImg1.png" alt="" />
+              <img
+                src="./assets/images/timelineImg1.png"
+                alt="" />
             </div>
             <div class="separator content-center">
               <div
                 class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
-                data-scrub-by=".char"
-              >
+                data-scrub-by=".char">
                 1980
               </div>
             </div>
             <div
-              class="txtWrapper grid gap-4 content-center font-medium uppercase"
-            >
-              <h2 class="text-3xl" data-scrub-by=".word">
+              class="txtWrapper grid gap-4 content-center font-medium uppercase">
+              <h2
+                class="text-3xl"
+                data-scrub-by=".word">
                 Born and raised in Côte d’Ivoire
               </h2>
             </div>
           </div>
           <div
-            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1"
-          >
+            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
-              <img src="./assets/images/timelineImg2.png" alt="" />
+              <img
+                src="./assets/images/timelineImg2.png"
+                alt="" />
             </div>
             <div class="separator content-center">
               <div
                 class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
-                data-scrub-by=".char"
-              >
+                data-scrub-by=".char">
                 1998
               </div>
             </div>
             <div
               class="txtWrapper grid gap-4 content-center font-medium uppercase"
-              data-scrub-by=".word"
-            >
+              data-scrub-by=".word">
               <h2 class="text-3xl">
                 Attended the University of Cape Town, South Africa
               </h2>
@@ -378,23 +438,22 @@
           </div>
 
           <div
-            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1"
-          >
+            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
-              <img src="./assets/images/timelineImg1.png" alt="" />
+              <img
+                src="./assets/images/timelineImg1.png"
+                alt="" />
             </div>
             <div class="separator content-center">
               <div
                 class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
-                data-scrub-by=".char"
-              >
+                data-scrub-by=".char">
                 2002
               </div>
             </div>
             <div
               class="txtWrapper grid gap-4 content-center font-medium uppercase"
-              data-scrub-by=".word"
-            >
+              data-scrub-by=".word">
               <h2 class="text-3xl">
                 Graduated from Harvard University, Kennedy School of Government
               </h2>
@@ -403,23 +462,22 @@
           </div>
 
           <div
-            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1"
-          >
+            class="timlineItem container grid grid-cols-[90px_1fr] md:grid-cols-[120px_1fr] lg:grid-cols-3 gap-8 lg:gap-4 place-content-center relative z-1">
             <div class="imgWrapper">
-              <img src="./assets/images/timelineImg1.png" alt="" />
+              <img
+                src="./assets/images/timelineImg1.png"
+                alt="" />
             </div>
             <div class="separator content-center">
               <div
                 class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
-                data-scrub-by=".char"
-              >
+                data-scrub-by=".char">
                 2005
               </div>
             </div>
             <div
               class="txtWrapper grid gap-4 content-center font-medium uppercase"
-              data-scrub-by=".word"
-            >
+              data-scrub-by=".word">
               <h2 class="text-3xl">Married (Ellada)</h2>
             </div>
           </div>
@@ -430,8 +488,7 @@
     <footer class="curtain">
       <div class="bg-gray py-4">
         <div
-          class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase"
-        >
+          class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
           <nav class="grid place-content-center">
             <ul class="flex gap-6">
               <li><a href="#">Terms & Conditons</a></li>
@@ -441,19 +498,29 @@
           <div class="social-links max-md:w-full">
             <ul class="flex justify-around gap-6">
               <li>
-                <img loading="lazy" src="./assets/icons/Linkedin.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Linkedin.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Facebook.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Facebook.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/X.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/X.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Youtube.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Youtube.svg" />
               </li>
               <li>
-                <img loading="lazy" src="./assets/icons/Instagram.svg" />
+                <img
+                  loading="lazy"
+                  src="./assets/icons/Instagram.svg" />
               </li>
             </ul>
           </div>
