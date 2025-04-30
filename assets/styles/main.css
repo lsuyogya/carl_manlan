@@ -606,7 +606,7 @@ main > section:first-child {
   -webkit-text-stroke: 1px var(--color-light);
 }
 
-nav ul li:has(a):not(.text-primary) {
+nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
   position: relative;
   display: inline-block;
   overflow: hidden;
