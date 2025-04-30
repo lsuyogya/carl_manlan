@@ -154,6 +154,8 @@ const BannerBgEffect = (() => {
 
   // Optimize animation frame handling
   function updateGradientPositions() {
+    if (window.innerWidth <= 1000) return;
+
     hexBgElements.forEach((data, element) => {
       if (!data.isHovering && !isMoving(data)) {
         data.animationFrameId = null;

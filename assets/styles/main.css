@@ -527,17 +527,35 @@ main > section:first-child {
 .verticalTimeline .timlineItem :is(.separator, .separator > *) {
   text-align: center;
 }
+.verticalTimeline .timlineItem .imgWrapper img {
+  border-radius: 1rem;
+}
 .verticalTimeline .timlineItem .imgWrapper {
   align-items: center;
   align-content: center;
   aspect-ratio: 3/2;
   align-self: center;
+  border-radius: 1rem;
   img {
     aspect-ratio: 3/2;
     width: 100%;
     height: auto;
     object-fit: cover;
   }
+}
+.verticalTimeline .timlineItem .imgWrapperClone {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  inset-inline-start: 50%;
+  margin-block: unset !important;
+  z-index: 0;
+  filter: blur(6px) brightness(70%);
+  opacity: 90%;
+}
+.verticalTimeline .timlineItem .txtWrapper {
+  position: relative;
+  z-index: 1;
 }
 @media (width <= 64rem) {
   .verticalTimeline .timlineItem .txtWrapper {
