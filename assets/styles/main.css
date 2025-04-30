@@ -627,6 +627,19 @@ nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
     background-position: 0 100%;
   }
 }
+footer nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary) 50%,
+    var(--color-dark) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+}
 
 input {
   border: 1px transparent !important;
